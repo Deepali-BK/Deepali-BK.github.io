@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Deepali Balakrishna Ksheersagar · AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0d;--bg2:#111;--surface:#161616;--surface2:#1a1a1a;
+  --border:#232323;--border2:#2e2e2e;
+  --text:#e8e8e6;--muted:#909090;--dim:#606060;--sub:#b8b8b6;
+  --accent:#e8d5a3;--accent2:#c9a96e;
+  --green:#6fcf8a;--blue:#7eb8f7;--purple:#b39ddb;
+  --mono:'JetBrains Mono',monospace;--sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.6;min-height:100vh}
+
+/* ─── TOPBAR ─── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:52px;
+  background:rgba(13,13,13,.96);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;
+  padding:0 32px;
+  gap:0;
+}
+.topbar-logo{
+  font-family:var(--mono);font-size:12px;color:var(--accent);
+  text-decoration:none;letter-spacing:.02em;margin-right:32px;white-space:nowrap;
+}
+.topbar-logo span{color:var(--dim)}
+.topbar-nav{
+  display:flex;align-items:center;gap:2px;flex:1;
+}
+.nav-btn{
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  background:none;border:1px solid transparent;cursor:pointer;
+  padding:5px 13px;border-radius:3px;letter-spacing:.04em;
+  transition:color .15s,background .15s,border-color .15s;white-space:nowrap;
+}
+.nav-btn:hover{color:var(--text);background:var(--surface);border-color:var(--border)}
+.nav-btn.active{color:var(--text);background:var(--surface);border-color:var(--border)}
+.topbar-right{
+  display:flex;align-items:center;gap:10px;margin-left:auto;
+}
+.topbar-status{
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;
+}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2.5s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.topbar-gh{
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:10px;color:var(--muted);
+  text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:3px;
+  transition:color .15s,border-color .15s;
+}
+.topbar-gh:hover{color:var(--text);border-color:var(--border2)}
+.topbar-gh svg{width:13px;height:13px;fill:currentColor;flex-shrink:0}
+
+/* ─── PAGES ─── */
+.page{display:none;min-height:calc(100vh - 52px);padding-top:52px}
+.page.active{display:block}
+
+/* ─── SHARED ─── */
+.page-wrap{max-width:900px;margin:0 auto;padding:40px 32px 80px}
+.page-header{padding:36px 0 28px;border-bottom:1px solid var(--border);margin-bottom:0}
+.page-title{font-size:10px;font-family:var(--mono);color:var(--dim);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.page-headline{font-size:clamp(24px,3.8vw,38px);font-weight:300;letter-spacing:-.03em;line-height:1.1;color:var(--text)}
+.page-headline em{font-style:italic;color:var(--accent)}
+
+.sec-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;padding:24px 0 14px;border-top:1px solid var(--border);margin-top:24px}
+.sec-label:first-child{margin-top:0}
+
+/* ─── HOME PAGE ─── */
+.home-hero{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:0 32px;max-width:900px;margin:0 auto;
+  min-height:calc(100vh - 52px);
+  gap:40px;padding-top:40px;padding-bottom:48px;
+}
+.home-top{}
+.home-eyebrow{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:24px}
+.home-name{font-size:clamp(48px,9vw,96px);font-weight:300;letter-spacing:-.04em;line-height:1.05;color:var(--text);margin-bottom:20px}
+.home-name em{color:var(--accent);font-style:normal}
+.home-name-sub{display:block;font-size:clamp(20px,3.5vw,38px);font-weight:300;letter-spacing:-.02em;color:var(--sub);line-height:1.2}
+.home-tagline{font-size:15px;color:var(--muted);line-height:1.75;max-width:520px}
+.home-body{display:grid;grid-template-columns:1fr 220px;gap:0 48px;border-top:1px solid var(--border);padding-top:32px}
+.home-about-text p{font-size:13.5px;color:var(--muted);line-height:1.85;margin-bottom:14px}
+.home-about-text p:last-child{margin-bottom:0}
+.home-awards{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.award-chip{font-family:var(--mono);font-size:10px;color:#e8c96e;background:rgba(232,201,110,.07);border:1px solid rgba(232,201,110,.16);padding:4px 10px;border-radius:2px;letter-spacing:.03em}
+.home-contact-col{display:flex;flex-direction:column;gap:0;border-left:1px solid var(--border);padding-left:28px}
+.hc-label{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.hc-item{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+.hc-item:last-of-type{border-bottom:none}
+.hc-key{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.06em}
+.hc-val{font-size:12px;color:var(--sub);transition:color .15s}
+.hc-item:hover .hc-val{color:var(--text)}
+.home-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border);border-left:1px solid var(--border);
+}
+.home-stat{padding:16px 20px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat-n{font-family:var(--mono);font-size:20px;font-weight:500;color:var(--text);letter-spacing:-.02em;margin-bottom:3px}
+.stat-l{font-size:11px;color:var(--muted);letter-spacing:.02em}
+.btn{font-family:var(--mono);font-size:11px;padding:8px 18px;border-radius:2px;text-decoration:none;cursor:pointer;transition:all .15s;letter-spacing:.04em;border:none;display:inline-block}
+.btn-primary{background:var(--accent);color:#0d0d0d}
+.btn-primary:hover{background:var(--accent2)}
+
+/* ─── PROJECTS PAGE ─── */
+.proj-row{
+  display:grid;grid-template-columns:36px 1fr;gap:0 20px;
+  padding:22px 0;border-bottom:1px solid var(--border);
+  cursor:default;transition:background .12s;position:relative;
+}
+.proj-row:hover{background:rgba(255,255,255,.014);padding-left:8px;padding-right:8px;margin:0 -8px}
+.proj-row:last-child{border-bottom:none}
+.proj-num{font-family:var(--mono);font-size:11px;color:var(--dim);padding-top:3px;letter-spacing:.04em}
+.proj-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:5px}
+.proj-title{font-size:14px;color:var(--text);font-weight:400;letter-spacing:-.01em}
+.proj-row:hover .proj-title{color:var(--accent)}
+.proj-badge{font-family:var(--mono);font-size:10px;color:#e8c96e;background:rgba(232,201,110,.09);border:1px solid rgba(232,201,110,.2);padding:2px 8px;border-radius:1px;white-space:nowrap}
+.proj-badge.blue{color:var(--blue);background:rgba(126,184,247,.08);border-color:rgba(126,184,247,.2)}
+.proj-meta-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.proj-year{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.04em}
+.proj-dot{width:3px;height:3px;border-radius:50%;background:var(--dim)}
+.proj-gh-link{font-family:var(--mono);font-size:10px;color:rgba(126,184,247,.7);text-decoration:none;letter-spacing:.02em;transition:color .15s}
+.proj-gh-link:hover{color:var(--blue)}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.7;max-width:640px;margin-bottom:10px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px}
+.proj-tag{font-family:var(--mono);font-size:10px;color:var(--dim);background:var(--surface);border:1px solid var(--border);padding:2px 8px;border-radius:1px;letter-spacing:.02em}
+.proj-tag.hi{color:rgba(200,169,110,.75);background:rgba(200,169,110,.05);border-color:rgba(200,169,110,.15)}
+
+/* ─── EXPERIENCE PAGE ─── */
+.exp-row{display:grid;grid-template-columns:160px 1fr;gap:0 32px;padding:26px 0;border-bottom:1px solid var(--border)}
+.exp-row:last-child{border-bottom:none}
+.exp-period{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.03em;margin-bottom:4px}
+.exp-company{font-family:var(--mono);font-size:11px;color:var(--accent2);letter-spacing:.04em}
+.exp-role{font-size:15px;color:var(--text);font-weight:400;letter-spacing:-.02em;margin-bottom:12px}
+.exp-blist{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.exp-blist li{font-size:13px;color:var(--muted);line-height:1.65;padding-left:18px;position:relative}
+.exp-blist li::before{content:'→';position:absolute;left:0;color:var(--dim);font-family:var(--mono);font-size:11px;top:2px}
+.exp-chips{display:flex;flex-wrap:wrap;gap:5px}
+.exp-chip{font-family:var(--mono);font-size:10px;color:rgba(111,207,138,.6);background:rgba(111,207,138,.05);border:1px solid rgba(111,207,138,.12);padding:2px 8px;border-radius:1px;letter-spacing:.02em}
+
+/* ─── SKILLS PAGE ─── */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.sg{padding:22px 26px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sg-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.sg-pills{display:flex;flex-wrap:wrap;gap:6px}
+.sg-pill{font-size:12px;color:var(--sub);border:1px solid var(--border2);padding:4px 11px;border-radius:2px;transition:color .15s,border-color .15s;cursor:default;letter-spacing:.01em}
+.sg-pill:hover{color:var(--text);border-color:var(--dim)}
+
+/* ─── EDUCATION PAGE ─── */
+.edu-row{display:grid;grid-template-columns:160px 1fr;gap:0 32px;padding:28px 0;border-bottom:1px solid var(--border)}
+.edu-row:last-child{border-bottom:none}
+.edu-year{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:4px}
+.edu-deg{font-size:16px;color:var(--text);font-weight:400;letter-spacing:-.01em;margin-bottom:3px}
+.edu-school{font-family:var(--mono);font-size:11px;color:var(--accent2);margin-bottom:8px;letter-spacing:.03em}
+.edu-courses{font-size:12px;color:var(--dim);line-height:1.65}
+
+.honor-row{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border)}
+.honor-row:last-child{border-bottom:none}
+.honor-icon{font-size:14px;flex-shrink:0}
+.honor-text{font-size:13px;color:var(--muted);line-height:1.6}
+.honor-text strong{color:var(--text);font-weight:400}
+
+/* ─── ABOUT PAGE ─── */
+.about-grid{display:grid;grid-template-columns:1fr 280px;gap:0 48px;align-items:start;padding:36px 0;border-bottom:1px solid var(--border)}
+.about-body p{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:16px}
+.about-body p:last-child{margin-bottom:0}
+.about-body strong{color:var(--sub);font-weight:500}
+.about-aside{}
+.aside-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:20px;margin-bottom:12px}
+.aside-label{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.aside-val{font-size:13px;color:var(--muted);line-height:1.65}
+.aside-val a{color:var(--accent2);text-decoration:none}
+.aside-val a:hover{color:var(--accent)}
+.aside-links{display:flex;flex-direction:column;gap:8px}
+.aside-link{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1px solid var(--border);border-radius:2px;text-decoration:none;transition:border-color .15s,background .15s}
+.aside-link:hover{border-color:var(--border2);background:var(--surface)}
+.aside-link-l{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+.aside-link-r{font-size:12px;color:var(--text)}
+.aside-link-arr{font-family:var(--mono);font-size:11px;color:var(--dim);transition:transform .15s}
+.aside-link:hover .aside-link-arr{transform:translate(2px,-2px)}
+
+/* ─── GITHUB PAGE ─── */
+.gh-repo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.gh-repo{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:18px 20px;text-decoration:none;display:block;transition:border-color .15s,background .15s}
+.gh-repo:hover{border-color:var(--border2);background:var(--surface2)}
+.gh-repo-name{font-family:var(--mono);font-size:13px;color:var(--blue);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.gh-repo-name svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.6;flex-shrink:0}
+.gh-repo-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.gh-repo-meta{display:flex;align-items:center;gap:14px}
+.gh-lang{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;color:var(--dim)}
+.gh-lang-dot{width:8px;height:8px;border-radius:50%}
+.gh-topics{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.gh-topic{font-family:var(--mono);font-size:10px;color:rgba(126,184,247,.65);background:rgba(126,184,247,.06);border:1px solid rgba(126,184,247,.12);padding:2px 7px;border-radius:1px;letter-spacing:.02em}
+.gh-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.gh-stat{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:16px 18px}
+.gh-stat-n{font-family:var(--mono);font-size:22px;color:var(--text);font-weight:500;letter-spacing:-.02em;margin-bottom:3px}
+.gh-stat-l{font-size:11px;color:var(--muted)}
+
+/* ─── CONTACT PAGE ─── */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-top:32px}
+.contact-desc{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:28px}
+.contact-desc strong{color:var(--sub);font-weight:500}
+.contact-hed{font-size:clamp(28px,4vw,44px);font-weight:300;letter-spacing:-.04em;line-height:1.05;color:var(--text);margin-bottom:20px}
+.contact-hed em{font-style:italic;color:var(--accent)}
+.contact-items{display:flex;flex-direction:column;gap:8px}
+.contact-item{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border:1px solid var(--border);border-radius:2px;text-decoration:none;transition:border-color .15s,background .15s}
+.contact-item:hover{border-color:var(--border2);background:var(--surface)}
+.ci-label{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.04em}
+.ci-val{font-size:13px;color:var(--text)}
+.ci-arr{font-family:var(--mono);font-size:12px;color:var(--dim);transition:transform .15s}
+.contact-item:hover .ci-arr{transform:translate(2px,-2px)}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── FOOTER ─── */
+.page-footer{border-top:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;max-width:900px;margin:0 auto}
+.footer-l,.footer-r{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.04em}
+
+/* ─── MOBILE ─── */
+@media(max-width:720px){
+  .topbar{padding:0 16px}
+  .topbar-logo{margin-right:12px}
+  .topbar-status{display:none}
+  .nav-btn{padding:6px 10px;font-size:10px}
+  .home-hero,.page-wrap{padding-left:20px;padding-right:20px}
+  .home-body{grid-template-columns:1fr;gap:28px}
+  .home-contact-col{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:20px}
+  .home-stats{grid-template-columns:repeat(2,1fr)}
+  .proj-row{grid-template-columns:28px 1fr}
+  .exp-row,.edu-row{grid-template-columns:1fr;gap:8px}
+  .skills-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:24px}
+  .gh-repo-grid,.gh-stats-row{grid-template-columns:1fr}
+  .contact-layout{grid-template-columns:1fr;gap:24px}
+  .page-footer{padding:16px 20px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOPBAR ═══ -->
+<header class="topbar">
+  <a href="#" class="topbar-logo" onclick="showPage('home');return false">deepali_bk<span>/_</span></a>
+  <nav class="topbar-nav">
+    <button class="nav-btn active" onclick="showPage('home')" data-page="home">home</button>
+    <button class="nav-btn" onclick="showPage('projects')" data-page="projects">projects</button>
+    <button class="nav-btn" onclick="showPage('experience')" data-page="experience">experience</button>
+    <button class="nav-btn" onclick="showPage('skills')" data-page="skills">skills</button>
+    <button class="nav-btn" onclick="showPage('education')" data-page="education">education</button>
+  </nav>
+  <div class="topbar-right">
+    <div class="topbar-status"><span class="status-dot"></span>open to work · nyc</div>
+    <a href="https://github.com/Deepali-BK" target="_blank" rel="noopener" class="topbar-gh">
+      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      github
+    </a>
+  </div>
+</header>
+
+<!-- ═══ HOME PAGE ═══ -->
+<div id="page-home" class="page active">
+  <div class="home-hero">
+
+    <!-- name + tagline -->
+    <div class="home-top">
+      <div class="home-eyebrow"><span class="status-dot"></span><span style="color:var(--green);letter-spacing:.06em">open to work</span>&nbsp;·&nbsp;ms data science · nyu · new york, ny</div>
+      <h1 class="home-name"><em>DEEPALI</em><br><span class="home-name-sub">BALAKRISHNA KSHEERSAGAR</span></h1>
+      <p class="home-tagline">AI/ML engineer building systems that work in the real world. LLM pipelines, multi-agent architectures, NLP at scale. Research to production.</p>
+    </div>
+
+    <!-- about + contact -->
+    <div class="home-body">
+      <div class="home-about-text">
+        <p>I'm a Data Science graduate from NYU (May 2026) with 3+ years across ML engineering, NLP research, and data engineering. My work spans LLMs, agentic AI, healthcare applications, and production ML pipelines. I care about the full journey from messy data to something deployed and reliable.</p>
+        <p>Previously at CGI (NER pipelines on 2M+ documents for a Fortune 500 telecom client), Global Consortium (multilingual NLP across 40+ languages), and Accenture (data engineering). Most recently research at NYU Meyers applying BERT and statistical modeling to global healthcare data.</p>
+        <p>Outside work, I'm a Women in Data Science Ambassador (2026) and enjoy the intersection of AI with healthcare, building systems that reduce friction in clinical workflows and improve patient outcomes.</p>
+        <div class="home-awards">
+          <span class="award-chip">🏆 3rd place · GDG NYC × NYU 2026</span>
+          <span class="award-chip">🏅 Violet Award 2025</span>
+          <span class="award-chip">🌐 WiDS Ambassador 2026</span>
+          <span class="award-chip">📄 Published · IJERT</span>
+        </div>
+      </div>
+      <div class="home-contact-col">
+        <div class="hc-label">get in touch</div>
+        <a href="mailto:db5144@nyu.edu" class="hc-item">
+          <span class="hc-key">email</span>
+          <span class="hc-val">db5144@nyu.edu ↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/deepali-bk/" target="_blank" rel="noopener" class="hc-item">
+          <span class="hc-key">linkedin</span>
+          <span class="hc-val">deepali-bk ↗</span>
+        </a>
+        <a href="https://github.com/Deepali-BK" target="_blank" rel="noopener" class="hc-item">
+          <span class="hc-key">github</span>
+          <span class="hc-val">Deepali-BK ↗</span>
+        </a>
+        <a href="https://devpost.com/Deepali-BK" target="_blank" rel="noopener" class="hc-item">
+          <span class="hc-key">devpost</span>
+          <span class="hc-val">Deepali-BK ↗</span>
+        </a>
+        <button class="btn btn-primary" onclick="showPage('projects')" style="margin-top:16px;width:100%;text-align:center">view projects →</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ PROJECTS PAGE ═══ -->
+<div id="page-projects" class="page">
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="page-title">projects</div>
+      <h1 class="page-headline">Selected <em>work</em></h1>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="proj-num">01</div>
+      <div>
+        <div class="proj-top">
+          <span class="proj-title">TenantShield: AI Building Inspection Platform</span>
+          <span class="proj-badge">🏆 3rd place · GDG NYC × NYU 2026</span>
+        </div>
+        <div class="proj-meta-row">
+          <span class="proj-year">2026</span><span class="proj-dot"></span>
+          <a href="https://github.com/Deepali-BK/TenantShield" target="_blank" class="proj-gh-link">github ↗</a>
+        </div>
+        <p class="proj-desc">Multi-agent AI platform helping NYC tenants document housing violations and auto-generate formal complaints. 3-agent A2A pipeline (Interacting → Inspection → Filing) with Gemini Live API for real-time voice intake and multimodal image analysis per NYC Housing Maintenance Code. Built at NYC Open Data Week, judged by engineers from Meta, Bloomberg, Instagram & Google.</p>
+        <div class="proj-tags">
+          <span class="proj-tag hi">Gemini Live API</span><span class="proj-tag hi">Vertex AI</span><span class="proj-tag hi">A2A multi-agent</span>
+          <span class="proj-tag">Kotlin</span><span class="proj-tag">Jetpack Compose</span><span class="proj-tag">CameraX</span>
+          <span class="proj-tag">Firebase</span><span class="proj-tag">Google Cloud</span><span class="proj-tag">MVVM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="proj-num">02</div>
+      <div>
+        <div class="proj-top"><span class="proj-title">CoffeeAgntcy: Multi-Agent System Optimization</span></div>
+        <div class="proj-meta-row"><span class="proj-year">2026</span></div>
+        <p class="proj-desc">Profiled and optimized a distributed multi-agent AI system. Cut latency 17% and achieved 12,000× throughput on cached queries using async Python, TCP connection pooling, and response caching.</p>
+        <div class="proj-tags">
+          <span class="proj-tag hi">Python asyncio</span><span class="proj-tag hi">LangGraph</span>
+          <span class="proj-tag">GPT-4o</span><span class="proj-tag">Docker</span><span class="proj-tag">cProfile</span><span class="proj-tag">SLIM TCP</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="proj-num">03</div>
+      <div>
+        <div class="proj-top"><span class="proj-title">Article Ingestion Pipeline, Muck Rack</span><span class="proj-badge blue">capstone</span></div>
+        <div class="proj-meta-row">
+          <span class="proj-year">2025</span><span class="proj-dot"></span>
+          <a href="https://github.com/Deepali-BK/Article-Ingestion-Pipeline-for-Muck-Rack" target="_blank" class="proj-gh-link">github ↗</a>
+        </div>
+        <p class="proj-desc">Production-grade HTML quality detection pipeline achieving 0.98 precision / 0.92 F1. Combined BeautifulSoup + XGBoost with rule-based heuristics. Built a GPT-4.1-mini few-shot labeling pipeline to expand an imbalanced dataset and fully eliminated manual QA bottlenecks.</p>
+        <div class="proj-tags">
+          <span class="proj-tag hi">Python</span><span class="proj-tag hi">XGBoost</span><span class="proj-tag hi">GPT-4.1</span>
+          <span class="proj-tag">BeautifulSoup</span><span class="proj-tag">Few-shot prompting</span><span class="proj-tag">ML Pipeline</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="proj-num">04</div>
+      <div>
+        <div class="proj-top"><span class="proj-title">Strategic Clarification in LLM Agents via CMDPs</span></div>
+        <div class="proj-meta-row"><span class="proj-year">2026</span></div>
+        <p class="proj-desc">Fine-tuned Qwen2.5-Coder-7B with LoRA + PPO-Lagrangian reinforcement learning to decide when to ask clarifying questions under a strict budget. Achieved +6.2pp improvement in code correctness over baseline on HumanEvalComm benchmark.</p>
+        <div class="proj-tags">
+          <span class="proj-tag hi">PyTorch</span><span class="proj-tag hi">PPO-Lagrangian</span><span class="proj-tag hi">LoRA</span>
+          <span class="proj-tag">Qwen2.5-Coder-7B</span><span class="proj-tag">Constrained MDP</span><span class="proj-tag">HuggingFace</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="proj-num">05</div>
+      <div>
+        <div class="proj-top"><span class="proj-title">Emotion Learning Evaluation for LLMs</span></div>
+        <div class="proj-meta-row">
+          <span class="proj-year">2025</span><span class="proj-dot"></span>
+          <a href="https://github.com/Deepali-BK/NLU-project" target="_blank" class="proj-gh-link">github ↗</a>
+        </div>
+        <p class="proj-desc">Benchmarked emotional intelligence of Gemma, Qwen, and Llama using zero-shot and few-shot prompt engineering. All models exceeded chance performance. Evaluation orchestration via LangChain + HuggingFace.</p>
+        <div class="proj-tags">
+          <span class="proj-tag hi">LangChain</span><span class="proj-tag hi">HuggingFace</span>
+          <span class="proj-tag">Gemma</span><span class="proj-tag">Qwen</span><span class="proj-tag">Llama</span><span class="proj-tag">LLM Eval</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="proj-num">06</div>
+      <div>
+        <div class="proj-top">
+          <span class="proj-title">heart-maxxxxing: Cardiac Rehab Gamification</span>
+          <span class="proj-badge blue">Pulse Foundry AI Healthcare Hackathon 2026</span>
+        </div>
+        <div class="proj-meta-row">
+          <span class="proj-year">2026</span><span class="proj-dot"></span>
+          <a href="https://devpost.com/software/heart-maxxxxing" target="_blank" class="proj-gh-link">devpost ↗</a>
+        </div>
+        <p class="proj-desc">Mario-style browser game turning 36-session cardiac rehab into an interactive world-map adventure. Gemini API as in-game AI guide. High-contrast pixel-art UI with Framer Motion. Deployed on Vercel.</p>
+        <div class="proj-tags">
+          <span class="proj-tag hi">Gemini API</span><span class="proj-tag">Next.js</span><span class="proj-tag">React</span>
+          <span class="proj-tag">Tailwind CSS</span><span class="proj-tag">Framer Motion</span><span class="proj-tag">Vercel</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="proj-num">07</div>
+      <div>
+        <div class="proj-top"><span class="proj-title">Voice-Based Disease Prediction (Interactive Health Bot)</span></div>
+        <div class="proj-meta-row">
+          <span class="proj-year">2020</span><span class="proj-dot"></span>
+          <a href="https://github.com/Deepali-BK/Voice-Based-Disease-Prediction-using-NLP-Random-Forest-on-Raspberry-Pi" target="_blank" class="proj-gh-link">github ↗</a><span class="proj-dot"></span>
+          <a href="https://www.ijert.org/research/symptoms-extraction-from-a-voice-input-using-natural-language-processing-IJERTV9IS040645.pdf" target="_blank" class="proj-gh-link">paper ↗</a>
+        </div>
+        <p class="proj-desc">End-to-end voice disease prediction deployed on Raspberry Pi. STT → NLP symptom extraction → Random Forest → TTS feedback. 95.02% accuracy. Received ₹37,000 in govt. funding. Published in IJERT.</p>
+        <div class="proj-tags">
+          <span class="proj-tag hi">Python</span><span class="proj-tag hi">NLTK</span><span class="proj-tag hi">Scikit-learn</span>
+          <span class="proj-tag">Random Forest</span><span class="proj-tag">STT/TTS</span><span class="proj-tag">Raspberry Pi</span><span class="proj-tag">Edge AI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="proj-num">08</div>
+      <div>
+        <div class="proj-top"><span class="proj-title">VertiBuds: AI-Assisted Vertigo Support System</span></div>
+        <div class="proj-meta-row">
+          <span class="proj-year">2024</span><span class="proj-dot"></span>
+          <a href="https://github.com/Deepali-BK/Vertibuds" target="_blank" class="proj-gh-link">github ↗</a><span class="proj-dot"></span>
+          <a href="https://devpost.com/software/vertibuds" target="_blank" class="proj-gh-link">devpost ↗</a>
+        </div>
+        <p class="proj-desc">Digital health system for chronic vertigo combining prompt engineering with Figma UX. Visualizes balance stability via Internal Compass with adaptive audio and textual guidance.</p>
+        <div class="proj-tags">
+          <span class="proj-tag hi">Prompt Engineering</span><span class="proj-tag hi">Figma</span>
+          <span class="proj-tag">UX Design</span><span class="proj-tag">Health Tech</span><span class="proj-tag">Accessibility</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="proj-num">09</div>
+      <div>
+        <div class="proj-top"><span class="proj-title">Auto E-Commerce: Agentic Trend-to-Store Pipeline</span></div>
+        <div class="proj-meta-row">
+          <span class="proj-year">2026</span><span class="proj-dot"></span>
+          <a href="https://devpost.com/software/auto-ecommerce" target="_blank" class="proj-gh-link">devpost ↗</a>
+        </div>
+        <p class="proj-desc">Autonomously detects niche microtrends and launches a full e-commerce store in minutes. CEO Orchestrator Agent coordinates Nimble (trend scraping), ClickHouse (data storage), and Datadog-monitored sub-agents to go from trend signal to live storefront end-to-end.</p>
+        <div class="proj-tags">
+          <span class="proj-tag hi">Multi-agent orchestration</span><span class="proj-tag hi">LangGraph</span>
+          <span class="proj-tag">Nimble</span><span class="proj-tag">ClickHouse</span><span class="proj-tag">Datadog</span><span class="proj-tag">Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EXPERIENCE PAGE ═══ -->
+<div id="page-experience" class="page">
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="page-title">experience</div>
+      <h1 class="page-headline">3+ YOE across <em>4 roles</em> in ML, NLP & data engineering</h1>
+    </div>
+
+    <div class="exp-row reveal">
+      <div>
+        <div class="exp-period">Sep 2025 – Present</div>
+        <div class="exp-company">NYU Meyers</div>
+      </div>
+      <div>
+        <div class="exp-role">Graduate Research Assistant</div>
+        <ul class="exp-blist">
+          <li>Statistical modeling on survey data from 90+ countries to perform pattern recognition in healthcare during COVID-19.</li>
+          <li>Built interactive Tableau dashboard to visualize findings for the organization's public-facing website.</li>
+          <li>BERT-based multi-class classifier achieving 87% accuracy on 5,000+ survey responses on violence faced by medical professionals.</li>
+        </ul>
+        <div class="exp-chips"><span class="exp-chip">Python</span><span class="exp-chip">BERT</span><span class="exp-chip">Transformers</span><span class="exp-chip">Statistical Modeling</span><span class="exp-chip">Tableau</span></div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div>
+        <div class="exp-period">Jun 2025 – Sep 2025</div>
+        <div class="exp-company">Global Consortium</div>
+      </div>
+      <div>
+        <div class="exp-role">Data Science Intern</div>
+        <ul class="exp-blist">
+          <li>Analyzed 21,000+ textual survey responses using multilingual RoBERTa (HuggingFace) across 40+ languages on PPE usage and funding during COVID-19.</li>
+          <li>Applied sentiment analysis and topic modeling to surface cross-country trends for public health reporting.</li>
+        </ul>
+        <div class="exp-chips"><span class="exp-chip">Python</span><span class="exp-chip">Multilingual RoBERTa</span><span class="exp-chip">Sentiment Analysis</span><span class="exp-chip">Topic Modeling</span><span class="exp-chip">HuggingFace</span></div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div>
+        <div class="exp-period">Feb 2022 – Jun 2023</div>
+        <div class="exp-company">CGI Inc.</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineer (ML)</div>
+        <ul class="exp-blist">
+          <li>Led NER implementation as SME for a Fortune 500 telecom client, extracting text and tabular entities from 2M+ unstructured documents using SpaCy.</li>
+          <li>Designed a structured database from extracted entities, reducing manual review time by 71%.</li>
+          <li>Built automated classification system (Flair + FastText) to categorize 10,000+ employee and client reviews for C-suite FY2023 strategic planning.</li>
+        </ul>
+        <div class="exp-chips"><span class="exp-chip">SpaCy</span><span class="exp-chip">Flair</span><span class="exp-chip">FastText</span><span class="exp-chip">NER</span><span class="exp-chip">ETL Pipelines</span><span class="exp-chip">Database Design</span></div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div>
+        <div class="exp-period">2020 – 2021</div>
+        <div class="exp-company">Accenture</div>
+      </div>
+      <div>
+        <div class="exp-role">Data Engineer</div>
+        <ul class="exp-blist">
+          <li>Migrated relational database tables to Hadoop File System (HDFS).</li>
+          <li>Generated 500+ config files, RunDate files, HQL query files and AutoSys Job Boxes using Spark engine for data ingestion pipelines.</li>
+        </ul>
+        <div class="exp-chips"><span class="exp-chip">SQL</span><span class="exp-chip">Hadoop / HDFS</span><span class="exp-chip">Apache Spark</span><span class="exp-chip">HiveQL</span><span class="exp-chip">AutoSys</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SKILLS PAGE ═══ -->
+<div id="page-skills" class="page">
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="page-title">skills</div>
+      <h1 class="page-headline">Built for <em>AI/ML & agentic</em> roles</h1>
+    </div>
+    <div class="skills-grid reveal" style="margin-top:28px">
+      <div class="sg">
+        <div class="sg-label">LLMs & agentic AI</div>
+        <div class="sg-pills">
+          <span class="sg-pill">LangChain</span>
+          <span class="sg-pill">LangGraph</span>
+          <span class="sg-pill">Multi-agent (A2A)</span>
+          <span class="sg-pill">RAG Systems</span>
+          <span class="sg-pill">Prompt Engineering</span>
+          <span class="sg-pill">Few-shot / n-shot</span>
+          <span class="sg-pill">LLM Evaluation</span>
+          <span class="sg-pill">GPT-4 / GPT-4o</span>
+          <span class="sg-pill">Gemini API</span>
+          <span class="sg-pill">Gemini Live API</span>
+          <span class="sg-pill">Vertex AI</span>
+        </div>
+      </div>
+      <div class="sg">
+        <div class="sg-label">model training & fine-tuning</div>
+        <div class="sg-pills">
+          <span class="sg-pill">PyTorch</span>
+          <span class="sg-pill">HuggingFace Transformers</span>
+          <span class="sg-pill">LoRA / PEFT</span>
+          <span class="sg-pill">Reinforcement Learning</span>
+          <span class="sg-pill">PPO / PPO-Lagrangian</span>
+          <span class="sg-pill">BERT / RoBERTa</span>
+          <span class="sg-pill">Qwen / Llama / Gemma</span>
+          <span class="sg-pill">TensorFlow</span>
+          <span class="sg-pill">Scikit-learn</span>
+          <span class="sg-pill">XGBoost</span>
+        </div>
+      </div>
+      <div class="sg">
+        <div class="sg-label">NLP</div>
+        <div class="sg-pills">
+          <span class="sg-pill">SpaCy</span>
+          <span class="sg-pill">Named Entity Recognition</span>
+          <span class="sg-pill">Sentiment Analysis</span>
+          <span class="sg-pill">Topic Modeling</span>
+          <span class="sg-pill">Multilingual NLP</span>
+          <span class="sg-pill">Text Classification</span>
+          <span class="sg-pill">Natural Language Understanding</span>
+          <span class="sg-pill">Flair</span>
+          <span class="sg-pill">FastText</span>
+          <span class="sg-pill">NLTK</span>
+        </div>
+      </div>
+      <div class="sg">
+        <div class="sg-label">ML engineering & infra</div>
+        <div class="sg-pills">
+          <span class="sg-pill">Python</span>
+          <span class="sg-pill">async Python</span>
+          <span class="sg-pill">ML Pipelines</span>
+          <span class="sg-pill">ETL Pipelines</span>
+          <span class="sg-pill">Data Labeling Automation</span>
+          <span class="sg-pill">Docker</span>
+          <span class="sg-pill">Google Cloud</span>
+          <span class="sg-pill">Firebase</span>
+          <span class="sg-pill">SQL</span>
+          <span class="sg-pill">Git</span>
+        </div>
+      </div>
+      <div class="sg">
+        <div class="sg-label">data & evaluation</div>
+        <div class="sg-pills">
+          <span class="sg-pill">Statistical Modeling</span>
+          <span class="sg-pill">A/B Testing</span>
+          <span class="sg-pill">Hypothesis Testing</span>
+          <span class="sg-pill">Bayesian Methods</span>
+          <span class="sg-pill">Pandas / NumPy</span>
+          <span class="sg-pill">Matplotlib / Seaborn</span>
+          <span class="sg-pill">Tableau</span>
+          <span class="sg-pill">R</span>
+        </div>
+      </div>
+      <div class="sg">
+        <div class="sg-label">languages & tools</div>
+        <div class="sg-pills">
+          <span class="sg-pill">Python</span>
+          <span class="sg-pill">SQL</span>
+          <span class="sg-pill">R</span>
+          <span class="sg-pill">C++</span>
+          <span class="sg-pill">Jupyter</span>
+          <span class="sg-pill">VS Code</span>
+          <span class="sg-pill">GitHub</span>
+          <span class="sg-pill">Vercel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EDUCATION PAGE ═══ -->
+<div id="page-education" class="page">
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="page-title">education</div>
+      <h1 class="page-headline">Degrees, <em>courses & honors</em></h1>
+    </div>
+
+    <div class="sec-label">degrees</div>
+    <div class="edu-row reveal">
+      <div><div class="edu-year">2024 – 2026</div></div>
+      <div>
+        <div class="edu-deg">MS Data Science</div>
+        <div class="edu-school">New York University</div>
+        <div class="edu-courses">Deep Learning · Machine Learning · Natural Language Understanding · Reinforcement Learning · Big Data · AI Applications in Business (NYU Stern School of Business)</div>
+      </div>
+    </div>
+    <div class="edu-row reveal">
+      <div><div class="edu-year">2016 – 2020</div></div>
+      <div>
+        <div class="edu-deg">BE Electronics & Communication</div>
+        <div class="edu-school">B.N.M Institute of Technology</div>
+        <div class="edu-courses">Artificial Neural Networks · Python Application Programming</div>
+      </div>
+    </div>
+
+    <div class="sec-label">honors & recognition</div>
+    <div class="honor-row reveal"><span class="honor-icon">🏆</span><div class="honor-text"><strong>3rd Place, GDG NYC × NYU Tandon "Build With AI" Hackathon 2026</strong> for TenantShield, judged by engineers from Meta, Bloomberg, Instagram & Google.</div></div>
+    <div class="honor-row reveal"><span class="honor-icon">🏅</span><div class="honor-text"><strong>Violet Internship & Research Award 2025</strong>. NYU recognition for research and internship excellence.</div></div>
+    <div class="honor-row reveal"><span class="honor-icon">🌐</span><div class="honor-text"><strong>Women in Data Science Ambassador 2026</strong>. Representing NYU in the global WiDS network.</div></div>
+    <div class="honor-row reveal"><span class="honor-icon">📄</span><div class="honor-text"><strong>Published Researcher</strong>. International Journal of Engineering Research & Technology (IJERT). <a href="https://www.ijert.org/research/symptoms-extraction-from-a-voice-input-using-natural-language-processing-IJERTV9IS040645.pdf" target="_blank" style="color:var(--accent2);text-decoration:none">Symptoms Extraction from Voice Input Using NLP ↗</a></div></div>
+    <div class="honor-row reveal"><span class="honor-icon">💰</span><div class="honor-text"><strong>₹37,000 Government Funding</strong>. Innovative and Entrepreneurship Development Centres (IEDC), Indian Govt. for the Voice-Based Disease Prediction project.</div></div>
+    <div class="honor-row reveal"><span class="honor-icon">🦈</span><div class="honor-text"><strong>GitHub Pull Shark & Pair Extraordinaire</strong>. GitHub achievement badges for open source contributions.</div></div>
+  </div>
+</div>
+
+<!-- ═══ GITHUB PAGE ═══ -->
+<div id="page-github" class="page">
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="page-title">github</div>
+      <h1 class="page-headline"><a href="https://github.com/Deepali-BK" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">github.com/<em>Deepali-BK</em> ↗</a></h1>
+    </div>
+
+    <div class="gh-stats-row reveal" style="margin-top:28px">
+      <div class="gh-stat"><div class="gh-stat-n">11</div><div class="gh-stat-l">public repositories</div></div>
+      <div class="gh-stat"><div class="gh-stat-n">13</div><div class="gh-stat-l">stars given</div></div>
+      <div class="gh-stat"><div class="gh-stat-n">2</div><div class="gh-stat-l">github achievements</div></div>
+    </div>
+
+    <div class="sec-label">pinned repositories</div>
+    <div class="gh-repo-grid reveal">
+      <a href="https://github.com/Deepali-BK/Article-Ingestion-Pipeline-for-Muck-Rack" target="_blank" class="gh-repo">
+        <div class="gh-repo-name"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>Article-Ingestion-Pipeline-for-Muck-Rack</div>
+        <div class="gh-topics"><span class="gh-topic">python</span><span class="gh-topic">xgboost</span><span class="gh-topic">gpt-4</span><span class="gh-topic">ml-pipeline</span></div>
+        <div class="gh-repo-desc">Production-grade HTML quality detection pipeline combining BeautifulSoup + XGBoost with GPT-4 few-shot labeling. 0.98 precision, 0.92 F1.</div>
+        <div class="gh-repo-meta"><span class="gh-lang"><span class="gh-lang-dot" style="background:#3572A5"></span>Python</span></div>
+      </a>
+      <a href="https://github.com/Deepali-BK/Vertibuds" target="_blank" class="gh-repo">
+        <div class="gh-repo-name"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>Vertibuds</div>
+        <div class="gh-topics"><span class="gh-topic">figma</span><span class="gh-topic">health-tech</span><span class="gh-topic">ai-prompting</span><span class="gh-topic">ux</span></div>
+        <div class="gh-repo-desc">Wearable system designed to help people living with chronic vertigo. AI-assisted balance visualization and adaptive guidance.</div>
+        <div class="gh-repo-meta"><span class="gh-lang"><span class="gh-lang-dot" style="background:#e34c26"></span>HTML</span></div>
+      </a>
+      <a href="https://github.com/Deepali-BK/TenantShield" target="_blank" class="gh-repo">
+        <div class="gh-repo-name"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>TenantShield</div>
+        <div class="gh-topics"><span class="gh-topic">kotlin</span><span class="gh-topic">gemini</span><span class="gh-topic">vertex-ai</span><span class="gh-topic">a2a</span></div>
+        <div class="gh-repo-desc">Multi-agent AI platform for NYC housing complaints. 3rd place at GDG NYC × NYU Tandon "Build With AI" Hackathon 2026.</div>
+        <div class="gh-repo-meta"><span class="gh-lang"><span class="gh-lang-dot" style="background:#A97BFF"></span>Kotlin</span></div>
+      </a>
+      <a href="https://github.com/Deepali-BK/NLU-project" target="_blank" class="gh-repo">
+        <div class="gh-repo-name"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>NLU-project: LLM Emotion Eval</div>
+        <div class="gh-topics"><span class="gh-topic">langchain</span><span class="gh-topic">huggingface</span><span class="gh-topic">llm-eval</span><span class="gh-topic">nlp</span></div>
+        <div class="gh-repo-desc">Benchmarked emotional intelligence of Gemma, Qwen, and Llama with zero-shot and few-shot prompt engineering.</div>
+        <div class="gh-repo-meta"><span class="gh-lang"><span class="gh-lang-dot" style="background:#3572A5"></span>Python</span></div>
+      </a>
+      <a href="https://github.com/Deepali-BK/Voice-Based-Disease-Prediction-using-NLP-Random-Forest-on-Raspberry-Pi" target="_blank" class="gh-repo">
+        <div class="gh-repo-name"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>Voice-Based-Disease-Prediction</div>
+        <div class="gh-topics"><span class="gh-topic">nlp</span><span class="gh-topic">random-forest</span><span class="gh-topic">raspberry-pi</span><span class="gh-topic">edge-ai</span></div>
+        <div class="gh-repo-desc">STT → NLP → Random Forest → TTS disease prediction on Raspberry Pi. 95.02% accuracy. Published in IJERT.</div>
+        <div class="gh-repo-meta"><span class="gh-lang"><span class="gh-lang-dot" style="background:#3572A5"></span>Python</span></div>
+      </a>
+      <a href="https://github.com/Deepali-BK" target="_blank" class="gh-repo" style="align-items:center;justify-content:center;display:flex;flex-direction:column;gap:8px;min-height:120px">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.06em">view all repositories</div>
+        <div style="font-size:22px;color:var(--dim)">→</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTACT PAGE ═══ -->
+<div id="page-contact" class="page">
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="page-title">contact</div>
+      <h1 class="page-headline">Let's work on <em>something real</em></h1>
+    </div>
+    <div class="contact-layout reveal">
+      <div>
+        <p class="contact-desc">I'm graduating from NYU in <strong>May 2026</strong> and actively looking for full-time roles in ML engineering, applied AI, NLP research, and data science.<br><br>Open to research collaborations, interesting problems, and conversations about building AI that actually ships. Response time: under 24 hours.</p>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:6px">
+          <div class="award-chip" style="display:inline-block;max-width:fit-content">Based in New York, NY</div>
+          <div class="award-chip" style="display:inline-block;max-width:fit-content">Available from May 2026</div>
+        </div>
+      </div>
+      <div class="contact-items">
+        <a href="mailto:db5144@nyu.edu" class="contact-item">
+          <span class="ci-label">email</span>
+          <span class="ci-val">db5144@nyu.edu</span>
+          <span class="ci-arr">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/deepali-bk/" target="_blank" rel="noopener" class="contact-item">
+          <span class="ci-label">linkedin</span>
+          <span class="ci-val">linkedin.com/in/deepali-bk</span>
+          <span class="ci-arr">↗</span>
+        </a>
+        <a href="https://github.com/Deepali-BK" target="_blank" rel="noopener" class="contact-item">
+          <span class="ci-label">github</span>
+          <span class="ci-val">github.com/Deepali-BK</span>
+          <span class="ci-arr">↗</span>
+        </a>
+        <a href="https://www.datascienceportfol.io/deepalibalakrishnate" target="_blank" rel="noopener" class="contact-item">
+          <span class="ci-label">portfolio</span>
+          <span class="ci-val">datascienceportfol.io</span>
+          <span class="ci-arr">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between">
+  <span style="font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.04em">deepali balakrishna ksheersagar · ms data science, nyu 2026</span>
+  <span style="font-family:var(--mono);font-size:10px;color:var(--dim)">new york, ny</span>
+</footer>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) { page.classList.add('active'); window.scrollTo(0,0); }
+  const btn = document.querySelector('[data-page="' + id + '"]');
+  if (btn) btn.classList.add('active');
+  // trigger reveals
+  setTimeout(() => {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 55); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    page.querySelectorAll('.reveal:not(.visible)').forEach(el => io.observe(el));
+  }, 30);
+}
+// init reveals on home
+setTimeout(() => showPage('home'), 50);
+</script>
+</body>
+</html>
