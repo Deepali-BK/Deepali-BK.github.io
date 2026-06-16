@@ -12,13 +12,13 @@
 :root{
   --bg:#0d0d0d;--bg2:#111;--surface:#161616;--surface2:#1a1a1a;
   --border:#232323;--border2:#2e2e2e;
-  --text:#e8e8e6;--muted:#909090;--dim:#606060;--sub:#b8b8b6;
+  --text:#e8e8e6;--muted:#a0a0a0;--dim:#787878;--sub:#c0c0be;
   --accent:#e8d5a3;--accent2:#c9a96e;
   --green:#6fcf8a;--blue:#7eb8f7;--purple:#b39ddb;
   --mono:'JetBrains Mono',monospace;--sans:'Inter',system-ui,sans-serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.6;min-height:100vh}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.65;min-height:100vh}
 
 /* ─── TOPBAR ─── */
 .topbar{
@@ -35,7 +35,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
   font-family:var(--mono);font-size:12px;color:var(--accent);
   text-decoration:none;letter-spacing:.02em;margin-right:32px;white-space:nowrap;
 }
-.topbar-logo span{color:var(--dim)}
+.topbar-logo span{color:var(--muted)}
 .topbar-nav{
   display:flex;align-items:center;gap:2px;flex:1;
 }
@@ -72,7 +72,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 /* ─── SHARED ─── */
 .page-wrap{max-width:900px;margin:0 auto;padding:40px 32px 80px}
 .page-header{padding:36px 0 28px;border-bottom:1px solid var(--border);margin-bottom:0}
-.page-title{font-size:10px;font-family:var(--mono);color:var(--dim);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.page-title{font-size:10px;font-family:var(--mono);color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
 .page-headline{font-size:clamp(24px,3.8vw,38px);font-weight:300;letter-spacing:-.03em;line-height:1.1;color:var(--text)}
 .page-headline em{font-style:italic;color:var(--accent)}
 
@@ -93,7 +93,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 .home-name{font-size:clamp(48px,9vw,96px);font-weight:300;letter-spacing:-.04em;line-height:1.05;color:var(--text);margin-bottom:20px}
 .home-name em{color:var(--accent);font-style:normal}
 .home-name-sub{display:block;font-size:clamp(20px,3.5vw,38px);font-weight:300;letter-spacing:-.02em;color:var(--sub);line-height:1.2}
-.home-tagline{font-size:15px;color:var(--muted);line-height:1.75;max-width:520px}
+.home-tagline{font-size:15px;color:var(--sub);line-height:1.75;max-width:520px}
 .home-photo-placeholder{
   width:160px;height:160px;flex-shrink:0;
   background:var(--surface2);border:1px solid var(--border2);
@@ -109,10 +109,10 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 .award-chip{font-family:var(--mono);font-size:10px;color:#e8c96e;background:rgba(232,201,110,.07);border:1px solid rgba(232,201,110,.16);padding:4px 10px;border-radius:2px;letter-spacing:.03em}
 .home-right-col{display:flex;flex-direction:column;border-left:1px solid var(--border);padding-left:28px}
 .home-contact-col{display:flex;flex-direction:column;gap:0}
-.hc-label{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.hc-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
 .hc-item{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
 .hc-item:last-of-type{border-bottom:none}
-.hc-key{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.06em}
+.hc-key{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em}
 .hc-val{font-size:12px;color:var(--sub);transition:color .15s}
 .hc-item:hover .hc-val{color:var(--text)}
 .home-stats{
@@ -134,15 +134,15 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 }
 .proj-row:hover{background:rgba(255,255,255,.014);padding-left:8px;padding-right:8px;margin:0 -8px}
 .proj-row:last-child{border-bottom:none}
-.proj-num{font-family:var(--mono);font-size:11px;color:var(--dim);padding-top:3px;letter-spacing:.04em}
+.proj-num{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:3px;letter-spacing:.04em}
 .proj-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:5px}
 .proj-title{font-size:14px;color:var(--text);font-weight:400;letter-spacing:-.01em}
 .proj-row:hover .proj-title{color:var(--accent)}
 .proj-badge{font-family:var(--mono);font-size:10px;color:#e8c96e;background:rgba(232,201,110,.09);border:1px solid rgba(232,201,110,.2);padding:2px 8px;border-radius:1px;white-space:nowrap}
 .proj-badge.blue{color:var(--blue);background:rgba(126,184,247,.08);border-color:rgba(126,184,247,.2)}
 .proj-meta-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.proj-year{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.04em}
-.proj-dot{width:3px;height:3px;border-radius:50%;background:var(--dim)}
+.proj-year{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em}
+.proj-dot{width:3px;height:3px;border-radius:50%;background:var(--sub)}
 .proj-gh-link{font-family:var(--mono);font-size:10px;color:rgba(126,184,247,.7);text-decoration:none;letter-spacing:.02em;transition:color .15s}
 .proj-gh-link:hover{color:var(--blue)}
 .proj-desc{font-size:13px;color:var(--muted);line-height:1.7;max-width:640px;margin-bottom:10px}
@@ -158,17 +158,82 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 .exp-role{font-size:15px;color:var(--text);font-weight:400;letter-spacing:-.02em;margin-bottom:12px}
 .exp-blist{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
 .exp-blist li{font-size:13px;color:var(--muted);line-height:1.65;padding-left:18px;position:relative}
-.exp-blist li::before{content:'→';position:absolute;left:0;color:var(--dim);font-family:var(--mono);font-size:11px;top:2px}
+.exp-blist li::before{content:'→';position:absolute;left:0;color:var(--sub);font-family:var(--mono);font-size:11px;top:2px}
 .exp-chips{display:flex;flex-wrap:wrap;gap:5px}
 .exp-chip{font-family:var(--mono);font-size:10px;color:rgba(111,207,138,.6);background:rgba(111,207,138,.05);border:1px solid rgba(111,207,138,.12);padding:2px 8px;border-radius:1px;letter-spacing:.02em}
 
 /* ─── SKILLS PAGE ─── */
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);border-left:1px solid var(--border)}
-.sg{padding:22px 26px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-.sg-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px}
+.sg{
+  padding:24px 28px;border-radius:3px;border:1px solid var(--border);
+  background:var(--surface);position:relative;overflow:hidden;
+  transition:border-color .2s,background .2s;
+}
+.sg::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--sg-color,var(--accent));opacity:.7;
+}
+.sg:hover{border-color:var(--border2);background:var(--surface2)}
+.sg-label{
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:16px;
+  color:var(--sg-color,var(--accent));
+  display:flex;align-items:center;gap:8px;
+}
+.sg-label::before{content:var(--sg-icon,'');font-size:13px;line-height:1}
 .sg-pills{display:flex;flex-wrap:wrap;gap:6px}
-.sg-pill{font-size:12px;color:var(--sub);border:1px solid var(--border2);padding:4px 11px;border-radius:2px;transition:color .15s,border-color .15s;cursor:default;letter-spacing:.01em}
-.sg-pill:hover{color:var(--text);border-color:var(--dim)}
+.sg-pill{
+  font-size:11px;font-family:var(--mono);
+  color:var(--sg-color-dim, var(--sub));
+  background:var(--sg-bg, rgba(232,213,163,.04));
+  border:1px solid var(--sg-border, rgba(232,213,163,.15));
+  padding:4px 10px;border-radius:2px;
+  transition:color .15s,background .15s,border-color .15s;
+  cursor:default;letter-spacing:.02em;
+}
+.sg-pill:hover{
+  color:var(--sg-color,var(--accent));
+  background:var(--sg-bg-hover, rgba(232,213,163,.09));
+  border-color:var(--sg-color,var(--accent));
+}
+
+/* group colour tokens */
+.sg-llm{
+  --sg-color:#a78bfa;--sg-icon:'⬡';
+  --sg-color-dim:rgba(167,139,250,.75);
+  --sg-bg:rgba(167,139,250,.04);--sg-bg-hover:rgba(167,139,250,.1);
+  --sg-border:rgba(167,139,250,.18);
+}
+.sg-train{
+  --sg-color:#7eb8f7;--sg-icon:'◈';
+  --sg-color-dim:rgba(126,184,247,.75);
+  --sg-bg:rgba(126,184,247,.04);--sg-bg-hover:rgba(126,184,247,.1);
+  --sg-border:rgba(126,184,247,.18);
+}
+.sg-nlp{
+  --sg-color:#6fcf8a;--sg-icon:'❋';
+  --sg-color-dim:rgba(111,207,138,.75);
+  --sg-bg:rgba(111,207,138,.04);--sg-bg-hover:rgba(111,207,138,.1);
+  --sg-border:rgba(111,207,138,.18);
+}
+.sg-eng{
+  --sg-color:#f6a84b;--sg-icon:'⌬';
+  --sg-color-dim:rgba(246,168,75,.75);
+  --sg-bg:rgba(246,168,75,.04);--sg-bg-hover:rgba(246,168,75,.1);
+  --sg-border:rgba(246,168,75,.18);
+}
+.sg-data{
+  --sg-color:#f07bb0;--sg-icon:'◉';
+  --sg-color-dim:rgba(240,123,176,.75);
+  --sg-bg:rgba(240,123,176,.04);--sg-bg-hover:rgba(240,123,176,.1);
+  --sg-border:rgba(240,123,176,.18);
+}
+.sg-lang{
+  --sg-color:#e8d5a3;--sg-icon:'◇';
+  --sg-color-dim:rgba(232,213,163,.75);
+  --sg-bg:rgba(232,213,163,.04);--sg-bg-hover:rgba(232,213,163,.1);
+  --sg-border:rgba(232,213,163,.18);
+}
 
 /* ─── EDUCATION PAGE ─── */
 .edu-row{display:grid;grid-template-columns:160px 1fr;gap:0 32px;padding:28px 0;border-bottom:1px solid var(--border)}
@@ -176,7 +241,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 .edu-year{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:4px}
 .edu-deg{font-size:16px;color:var(--text);font-weight:400;letter-spacing:-.01em;margin-bottom:3px}
 .edu-school{font-family:var(--mono);font-size:11px;color:var(--accent2);margin-bottom:8px;letter-spacing:.03em}
-.edu-courses{font-size:12px;color:var(--dim);line-height:1.65}
+.edu-courses{font-size:12px;color:var(--sub);line-height:1.65}
 
 .honor-row{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border)}
 .honor-row:last-child{border-bottom:none}
@@ -191,7 +256,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 .about-body strong{color:var(--sub);font-weight:500}
 .about-aside{}
 .aside-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:20px;margin-bottom:12px}
-.aside-label{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.aside-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
 .aside-val{font-size:13px;color:var(--muted);line-height:1.65}
 .aside-val a{color:var(--accent2);text-decoration:none}
 .aside-val a:hover{color:var(--accent)}
@@ -200,7 +265,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 .aside-link:hover{border-color:var(--border2);background:var(--surface)}
 .aside-link-l{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
 .aside-link-r{font-size:12px;color:var(--text)}
-.aside-link-arr{font-family:var(--mono);font-size:11px;color:var(--dim);transition:transform .15s}
+.aside-link-arr{font-family:var(--mono);font-size:11px;color:var(--sub);transition:transform .15s}
 .aside-link:hover .aside-link-arr{transform:translate(2px,-2px)}
 
 /* ─── GITHUB PAGE ─── */
@@ -229,9 +294,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 .contact-items{display:flex;flex-direction:column;gap:8px}
 .contact-item{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border:1px solid var(--border);border-radius:2px;text-decoration:none;transition:border-color .15s,background .15s}
 .contact-item:hover{border-color:var(--border2);background:var(--surface)}
-.ci-label{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.04em}
+.ci-label{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
 .ci-val{font-size:13px;color:var(--text)}
-.ci-arr{font-family:var(--mono);font-size:12px;color:var(--dim);transition:transform .15s}
+.ci-arr{font-family:var(--mono);font-size:12px;color:var(--sub);transition:transform .15s}
 .contact-item:hover .ci-arr{transform:translate(2px,-2px)}
 
 /* ─── REVEAL ─── */
@@ -309,7 +374,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
       <div class="home-about-text">
         <p>I'm a Data Science graduate from NYU (May 2026) with 3+ years across ML engineering, NLP research, and data engineering. My work spans LLMs, agentic AI, healthcare applications, and production ML pipelines. I care about the full journey from messy data to something deployed and reliable.</p>
         <p>Previously a Machine Learning Engineer at CGI for 2 years, building NER pipelines on 2M+ documents for a Fortune 500 telecom client. Also at The Global Consortium of Nursing & Midwifery Studies (multilingual NLP across 40+ languages) and Accenture (data engineering). Most recently research at NYU Rory Meyers applying BERT and statistical modeling to global healthcare data.</p>
-        <p>Outside work, I'm a Women in Data Science Ambassador (2026) and enjoy the intersection of AI with healthcare, building systems that reduce friction in clinical workflows and improve patient outcomes.</p>
+        <p>Outside work, I'm a Women in Data Science Ambassador (2026) and enjoy the intersection of AI with healthcare, building systems that reduce friction in clinical workflows and improve patient outcomes. When I'm not coding, I love painting, reading, and gardening — you can find my art on <a href="https://www.instagram.com/artkive_by_dee/" target="_blank" rel="noopener" style="color:var(--accent2);text-decoration:none;border-bottom:1px solid rgba(201,169,110,.3);padding-bottom:1px;transition:color .15s,border-color .15s" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)'" onmouseout="this.style.color='var(--accent2)';this.style.borderColor='rgba(201,169,110,.3)'">Instagram ↗</a>.</p>
         <div class="home-awards">
           <span class="award-chip">🏆 3rd place · GDG NYC × NYU 2026</span>
           <span class="award-chip">🏅 Violet Internship & Research Award 2025</span>
@@ -337,6 +402,10 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
           <a href="https://devpost.com/Deepali-BK" target="_blank" rel="noopener" class="hc-item">
             <span class="hc-key">devpost</span>
             <span class="hc-val">Deepali-BK ↗</span>
+          </a>
+          <a href="https://www.instagram.com/artkive_by_dee/" target="_blank" rel="noopener" class="hc-item">
+            <span class="hc-key">instagram</span>
+            <span class="hc-val">artkive_by_dee ↗</span>
           </a>
           <button class="btn btn-primary" onclick="showPage('projects')" style="margin-top:16px;width:100%;text-align:center">view projects →</button>
         </div>
@@ -589,7 +658,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
       <h1 class="page-headline">Built for <em>AI/ML & agentic</em> roles</h1>
     </div>
     <div class="skills-grid reveal" style="margin-top:28px">
-      <div class="sg">
+      <div class="sg sg-llm">
         <div class="sg-label">LLMs & agentic AI</div>
         <div class="sg-pills">
           <span class="sg-pill">LangChain</span>
@@ -605,7 +674,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
           <span class="sg-pill">Vertex AI</span>
         </div>
       </div>
-      <div class="sg">
+      <div class="sg sg-train">
         <div class="sg-label">model training & fine-tuning</div>
         <div class="sg-pills">
           <span class="sg-pill">PyTorch</span>
@@ -620,7 +689,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
           <span class="sg-pill">XGBoost</span>
         </div>
       </div>
-      <div class="sg">
+      <div class="sg sg-nlp">
         <div class="sg-label">NLP</div>
         <div class="sg-pills">
           <span class="sg-pill">SpaCy</span>
@@ -635,7 +704,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
           <span class="sg-pill">NLTK</span>
         </div>
       </div>
-      <div class="sg">
+      <div class="sg sg-eng">
         <div class="sg-label">ML engineering & infra</div>
         <div class="sg-pills">
           <span class="sg-pill">Python</span>
@@ -650,7 +719,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
           <span class="sg-pill">Git</span>
         </div>
       </div>
-      <div class="sg">
+      <div class="sg sg-data">
         <div class="sg-label">data & evaluation</div>
         <div class="sg-pills">
           <span class="sg-pill">Statistical Modeling</span>
@@ -663,7 +732,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
           <span class="sg-pill">R</span>
         </div>
       </div>
-      <div class="sg">
+      <div class="sg sg-lang">
         <div class="sg-label">languages & tools</div>
         <div class="sg-pills">
           <span class="sg-pill">Python</span>
@@ -813,8 +882,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font
 
 <!-- FOOTER -->
 <footer style="border-top:1px solid var(--border);padding:18px 32px;display:flex;align-items:center;justify-content:space-between">
-  <span style="font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.04em">deepali balakrishna ksheersagar · ms data science, nyu 2026</span>
-  <span style="font-family:var(--mono);font-size:10px;color:var(--dim)">new york, ny</span>
+  <span style="font-family:var(--mono);font-size:10px;color:var(--sub);letter-spacing:.04em">deepali balakrishna ksheersagar · ms data science, nyu 2026</span>
+  <span style="font-family:var(--mono);font-size:10px;color:var(--sub)">new york, ny</span>
 </footer>
 
 <script>
