@@ -56,10 +56,12 @@ body{
   border-right:1px solid var(--border);
   display:flex;
   flex-direction:column;
-  padding:40px 32px;
+  padding:36px 28px 32px;
   overflow-y:auto;
   z-index:100;
+  scrollbar-width:none;
 }
+.sidebar::-webkit-scrollbar{display:none}
 .sb-photo{
   width:88px;height:88px;border-radius:50%;
   overflow:hidden;border:2px solid var(--border);
@@ -77,15 +79,16 @@ body{
   line-height:1.5;margin-bottom:24px;
 }
 .sb-status{
-  display:inline-flex;align-items:center;gap:6px;
-  font-family:var(--mono);font-size:10px;
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:9px;
   color:var(--green);
-  background:rgba(45,122,79,.08);
-  border:1px solid rgba(45,122,79,.2);
-  padding:4px 10px;border-radius:20px;
-  letter-spacing:.04em;margin-bottom:28px;
+  background:rgba(45,122,79,.07);
+  border:1px solid rgba(45,122,79,.18);
+  padding:3px 8px;border-radius:20px;
+  letter-spacing:.05em;margin-bottom:24px;
+  width:fit-content;
 }
-.sb-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2.5s ease-in-out infinite;flex-shrink:0}
+.sb-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2.5s ease-in-out infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
 /* sidebar nav */
@@ -105,19 +108,20 @@ body{
 .sb-link{
   display:flex;align-items:center;justify-content:space-between;
   font-size:12px;color:var(--muted);text-decoration:none;
-  padding:6px 0;border-bottom:1px solid var(--border);
-  transition:color .15s;letter-spacing:.01em;
+  padding:8px 0;border-bottom:1px solid var(--border);
+  transition:color .15s;
 }
 .sb-link:last-child{border-bottom:none}
-.sb-link:hover{color:var(--text)}
-.sb-link-label{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.06em}
-.sb-link-val{font-size:12px;color:var(--sub)}
+.sb-link:hover .sb-link-val{color:var(--text)}
+.sb-link-label{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.06em;flex-shrink:0}
+.sb-link-val{font-size:12px;color:var(--sub);text-align:right}
 
 /* ─── MAIN CONTENT ─── */
 .main{
   margin-left:var(--sidebar);
-  padding:64px 72px 96px;
-  max-width:820px;
+  padding:56px 64px 96px;
+  max-width:none;
+  width:calc(100% - var(--sidebar));
 }
 
 /* ─── SECTION ─── */
@@ -125,6 +129,7 @@ body{
   padding-top:72px;
   border-top:1px solid var(--border);
   margin-top:72px;
+  scroll-margin-top:16px;
 }
 .section:first-child{padding-top:0;border-top:none;margin-top:0}
 
@@ -176,7 +181,7 @@ body{
 .hero-stat-l{font-size:12px;color:var(--muted);letter-spacing:.02em}
 
 /* ─── ABOUT SECTION ─── */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:40px;align-items:start}
 .about-body p{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:16px}
 .about-body p:last-child{margin-bottom:0}
 .about-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(139,69,19,.3)}
@@ -345,9 +350,9 @@ body{
 }
 .connect-btn:hover{color:var(--text);border-color:var(--accent);background:var(--accent-light)}
 .connect-btn.primary{
-  background:var(--accent);color:#fff;border-color:var(--accent);
+  background:rgba(45,122,79,.28);color:var(--green);border-color:rgba(45,122,79,.45);
 }
-.connect-btn.primary:hover{background:var(--accent2);border-color:var(--accent2)}
+.connect-btn.primary:hover{background:rgba(45,122,79,.38);border-color:rgba(45,122,79,.65)}
 
 /* ─── REVEAL ─── */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
@@ -356,28 +361,61 @@ body{
 /* ─── FOOTER ─── */
 .page-footer{
   margin-left:var(--sidebar);
-  padding:28px 72px;
+  width:calc(100% - var(--sidebar));
+  padding:24px 64px;
   border-top:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
 }
 .footer-l,.footer-r{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.04em}
 
+/* ─── TABLET ─── */
+@media(max-width:1100px){
+  :root{--sidebar:220px}
+  .main{padding:48px 48px 80px}
+  .page-footer{padding:24px 48px}
+}
+
 /* ─── MOBILE ─── */
 @media(max-width:800px){
-  .layout{grid-template-columns:1fr}
+  :root{--sidebar:0px}
+  .layout{display:block}
   .sidebar{
     position:relative;width:100%;height:auto;
     border-right:none;border-bottom:1px solid var(--border);
-    padding:28px 24px;flex-direction:row;flex-wrap:wrap;gap:16px;align-items:flex-start;
+    padding:20px 20px 16px;
+    flex-direction:column;gap:0;
   }
-  .sb-nav{flex-direction:row;flex-wrap:wrap;gap:4px;margin-bottom:0;width:100%}
-  .sb-links{flex-direction:row;flex-wrap:wrap;margin-top:0;gap:12px;width:100%}
-  .sb-link{border-bottom:none;padding:0}
-  .main{margin-left:0;padding:40px 24px 64px}
+  .sb-photo{width:56px;height:56px;margin-bottom:12px}
+  .sb-name{font-size:16px;margin-bottom:4px}
+  .sb-title{font-size:11px;margin-bottom:12px}
+  .sb-status{margin-bottom:16px}
+  .sb-nav{
+    flex-direction:row;flex-wrap:wrap;gap:4px;
+    margin-bottom:12px;width:100%;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+    padding-bottom:4px;
+  }
+  .sb-nav a{padding:5px 10px;font-size:12px;white-space:nowrap}
+  .sb-links{
+    flex-direction:row;flex-wrap:wrap;margin-top:0;
+    gap:0;width:100%;border-top:1px solid var(--border);padding-top:12px;
+  }
+  .sb-link{
+    border-bottom:none;padding:3px 0;
+    flex-direction:row;gap:6px;align-items:center;
+  }
+  .sb-link-label{display:inline;font-size:9px}
+  .sb-link-val{font-size:11px}
+  .main{margin-left:0;width:100%;padding:32px 20px 64px}
+  .page-footer{margin-left:0;width:100%;padding:16px 20px;flex-direction:column;gap:4px;text-align:center}
   .about-grid,.skills-grid{grid-template-columns:1fr}
-  .exp-item,.edu-item{grid-template-columns:1fr}
-  .exp-logo{display:none}
-  .page-footer{margin-left:0;padding:20px 24px;flex-direction:column;gap:6px;text-align:center}
+  .exp-item,.edu-item{grid-template-columns:1fr;gap:12px}
+  .exp-logo{width:32px;height:32px;font-size:8px}
+  .hero-stats{flex-wrap:wrap;gap:24px}
+  .hero-headline{font-size:clamp(28px,8vw,42px)}
+  .section-title{font-size:clamp(22px,6vw,32px)}
+  .connect-links{flex-direction:column}
+  .connect-btn{text-align:center}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
@@ -434,16 +472,16 @@ body{
 
   <!-- HOME -->
   <section id="home" class="section" style="padding-top:0;border-top:none;margin-top:0">
-    <div class="section-eyebrow">New York, NY · Available now</div>
+    <div class="section-eyebrow">New York, NY</div>
     <h1 class="hero-headline">
       Machine Learning<br>Engineer &amp; <em>Data Scientist</em>
     </h1>
     <p class="hero-sub">I build AI systems that work in the real world: LLM pipelines, multi-agent architectures, NLP at scale. From research to production. NYU MS Data Science graduate, May 2026.</p>
     <div class="hero-chips">
-      <span class="hero-chip">LLMs & Agentic AI</span>
+      <span class="hero-chip">LLMs &amp; Agentic AI</span>
       <span class="hero-chip">NLP at Scale</span>
       <span class="hero-chip">Multi-agent Systems</span>
-      <span class="hero-chip">Fine-tuning & RL</span>
+      <span class="hero-chip">Fine-tuning &amp; RL</span>
       <span class="hero-chip">RAG Pipelines</span>
     </div>
     <div class="hero-stats">
@@ -478,10 +516,10 @@ body{
       </div>
       <div class="about-aside">
         <div class="aside-block">
-          <div class="aside-block-label">Honors & Recognition</div>
+          <div class="aside-block-label">Honors &amp; Recognition</div>
           <div class="award-list">
             <div class="award-item"><span class="award-icon">🏆</span>3rd place · GDG NYC × NYU 2026</div>
-            <div class="award-item"><span class="award-icon">🏅</span>Violet Internship & Research Award 2025</div>
+            <div class="award-item"><span class="award-icon">🏅</span>Violet Internship &amp; Research Award 2025</div>
             <div class="award-item"><span class="award-icon">🌐</span>WiDS Ambassador 2026</div>
             <div class="award-item"><span class="award-icon">📄</span>Published · IJERT</div>
             <div class="award-item"><span class="award-icon">💰</span>₹37,000 Govt. Funding · IEDC</div>
@@ -490,7 +528,7 @@ body{
         </div>
         <div class="aside-block">
           <div class="aside-block-label">Location</div>
-          <div class="aside-block-val">New York, NY<br>Open to remote & hybrid</div>
+          <div class="aside-block-val">New York, NY<br>Open to relocation</div>
         </div>
       </div>
     </div>
@@ -580,7 +618,7 @@ body{
         <span class="proj-badge">🏆 3rd place · GDG NYC × NYU 2026</span>
       </div>
       <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/TenantShield" target="_blank" class="proj-link">github ↗</a></div>
-      <p class="proj-desc">Multi-agent AI platform helping NYC tenants document housing violations and auto-generate formal complaints. 3-agent A2A pipeline with Gemini Live API for real-time voice intake and multimodal image analysis. Judged by engineers from Meta, Bloomberg, Instagram & Google.</p>
+      <p class="proj-desc">Multi-agent AI platform helping NYC tenants document housing violations and auto-generate formal complaints. 3-agent A2A pipeline with Gemini Live API for real-time voice intake and multimodal image analysis. Judged by engineers from Meta, Bloomberg, Instagram &amp; Google.</p>
       <div class="proj-tags"><span class="proj-tag hi">Gemini Live API</span><span class="proj-tag hi">Vertex AI</span><span class="proj-tag hi">A2A multi-agent</span><span class="proj-tag">Kotlin</span><span class="proj-tag">Jetpack Compose</span><span class="proj-tag">Firebase</span><span class="proj-tag">Google Cloud</span></div>
     </div>
 
@@ -651,22 +689,22 @@ body{
   <!-- SKILLS -->
   <section id="skills" class="section reveal">
     <div class="section-eyebrow">Technical skills</div>
-    <h2 class="section-title">Built for <em>AI/ML & agentic</em> roles</h2>
+    <h2 class="section-title">Built for <em>AI/ML</em> &amp; agentic roles</h2>
     <div class="skills-grid">
       <div class="sg sg-llm">
-        <div class="sg-label">⬡ LLMs & Agentic AI</div>
+        <div class="sg-label">⬡ LLMs &amp; Agentic AI</div>
         <div class="sg-pills"><span class="sg-pill">LangChain</span><span class="sg-pill">LangGraph</span><span class="sg-pill">Multi-agent (A2A)</span><span class="sg-pill">RAG Systems</span><span class="sg-pill">Prompt Engineering</span><span class="sg-pill">Few-shot / n-shot</span><span class="sg-pill">LLM Evaluation</span><span class="sg-pill">GPT-4 / GPT-4o</span><span class="sg-pill">Gemini API</span><span class="sg-pill">Gemini Live API</span><span class="sg-pill">Vertex AI</span></div>
       </div>
       <div class="sg sg-train">
-        <div class="sg-label">◈ Model Training & Fine-tuning</div>
+        <div class="sg-label">◈ Model Training &amp; Fine-tuning</div>
         <div class="sg-pills"><span class="sg-pill">PyTorch</span><span class="sg-pill">HuggingFace Transformers</span><span class="sg-pill">LoRA / PEFT</span><span class="sg-pill">Reinforcement Learning</span><span class="sg-pill">PPO / PPO-Lagrangian</span><span class="sg-pill">BERT / RoBERTa</span><span class="sg-pill">Qwen / Llama / Gemma</span><span class="sg-pill">TensorFlow</span><span class="sg-pill">Scikit-learn</span><span class="sg-pill">XGBoost</span></div>
       </div>
       <div class="sg sg-nlp">
-        <div class="sg-label">❋ NLP & Data</div>
+        <div class="sg-label">❋ NLP &amp; Data</div>
         <div class="sg-pills"><span class="sg-pill">SpaCy</span><span class="sg-pill">NER</span><span class="sg-pill">Sentiment Analysis</span><span class="sg-pill">Topic Modeling</span><span class="sg-pill">Multilingual NLP</span><span class="sg-pill">Text Classification</span><span class="sg-pill">Flair</span><span class="sg-pill">FastText</span><span class="sg-pill">NLTK</span><span class="sg-pill">Statistical Modeling</span><span class="sg-pill">Pandas / NumPy</span><span class="sg-pill">Tableau</span></div>
       </div>
       <div class="sg sg-eng">
-        <div class="sg-label">⌬ Engineering & Tools</div>
+        <div class="sg-label">⌬ Engineering &amp; Tools</div>
         <div class="sg-pills"><span class="sg-pill">Python</span><span class="sg-pill">async Python</span><span class="sg-pill">ML Pipelines</span><span class="sg-pill">ETL Pipelines</span><span class="sg-pill">Docker</span><span class="sg-pill">Google Cloud</span><span class="sg-pill">Firebase</span><span class="sg-pill">SQL</span><span class="sg-pill">Git</span><span class="sg-pill">R</span><span class="sg-pill">A/B Testing</span><span class="sg-pill">Bayesian Methods</span></div>
       </div>
     </div>
