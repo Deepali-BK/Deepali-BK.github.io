@@ -27,7 +27,7 @@
   --serif:'EB Garamond',Georgia,serif;
   --sans:'Inter',system-ui,sans-serif;
   --mono:'JetBrains Mono',monospace;
-  --sidebar:260px;
+  --sidebar:300px;
 }
 html{scroll-behavior:smooth}
 body{
@@ -62,11 +62,11 @@ body{
 }
 .sidebar::-webkit-scrollbar{display:none}
 .sb-photo{
-  width:88px;height:88px;border-radius:50%;
-  overflow:hidden;border:2px solid var(--border);
+  width:120px;height:140px;border-radius:8px;
+  overflow:hidden;border:1px solid var(--border);
   margin-bottom:20px;flex-shrink:0;
 }
-.sb-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.sb-photo img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
 .sb-name{
   font-family:var(--serif);
   font-size:20px;font-weight:500;
@@ -368,7 +368,7 @@ body{
 
 /* ─── TABLET ─── */
 @media(max-width:1100px){
-  :root{--sidebar:220px}
+  :root{--sidebar:260px}
   .main{padding:48px 48px 80px}
   .page-footer{padding:24px 48px}
 }
@@ -382,7 +382,7 @@ body{
     padding:20px 20px 16px;
     flex-direction:column;gap:0;
   }
-  .sb-photo{width:56px;height:56px;margin-bottom:12px}
+  .sb-photo{width:72px;height:84px;border-radius:6px;margin-bottom:12px}
   .sb-name{font-size:16px;margin-bottom:4px}
   .sb-title{font-size:11px;margin-bottom:12px}
   .sb-status{margin-bottom:16px}
