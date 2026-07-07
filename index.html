@@ -41,8 +41,7 @@ body{
 
 /* ─── LAYOUT ─── */
 .layout{
-  display:grid;
-  grid-template-columns:var(--sidebar) 1fr;
+  display:block;
   min-height:100vh;
 }
 
@@ -120,8 +119,7 @@ body{
 .main{
   margin-left:var(--sidebar);
   padding:56px 64px 96px;
-  max-width:none;
-  width:calc(100% - var(--sidebar));
+  box-sizing:border-box;
 }
 
 /* ─── SECTION ─── */
@@ -181,7 +179,7 @@ body{
 .hero-stat-l{font-size:12px;color:var(--muted);letter-spacing:.02em}
 
 /* ─── ABOUT SECTION ─── */
-.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:40px;align-items:start}
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:40px;align-items:start}
 .about-body p{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:16px}
 .about-body p:last-child{margin-bottom:0}
 .about-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(139,69,19,.3)}
@@ -322,7 +320,7 @@ body{
 .honor-item{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
 .honor-item:last-child{border-bottom:none}
 .honor-icon{font-size:14px;flex-shrink:0}
-.honor-text{font-size:13px;color:var(--muted);line-height:1.6}
+.honor-text{font-size:13px;color:var(--muted);line-height:1.6;min-width:0;flex:1}
 .honor-text strong{color:var(--text);font-weight:500}
 .honor-text a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(139,69,19,.25)}
 .honor-text a:hover{border-color:var(--accent)}
@@ -361,10 +359,10 @@ body{
 /* ─── FOOTER ─── */
 .page-footer{
   margin-left:var(--sidebar);
-  width:calc(100% - var(--sidebar));
   padding:24px 64px;
   border-top:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
+  box-sizing:border-box;
 }
 .footer-l,.footer-r{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.04em}
 
@@ -378,7 +376,6 @@ body{
 /* ─── MOBILE ─── */
 @media(max-width:800px){
   :root{--sidebar:0px}
-  .layout{display:block}
   .sidebar{
     position:relative;width:100%;height:auto;
     border-right:none;border-bottom:1px solid var(--border);
@@ -409,6 +406,7 @@ body{
   .main{margin-left:0;width:100%;padding:32px 20px 64px}
   .page-footer{margin-left:0;width:100%;padding:16px 20px;flex-direction:column;gap:4px;text-align:center}
   .about-grid,.skills-grid{grid-template-columns:1fr}
+  .honor-item{align-items:flex-start}
   .exp-item,.edu-item{grid-template-columns:1fr;gap:12px}
   .exp-logo{width:32px;height:32px;font-size:8px}
   .hero-stats{flex-wrap:wrap;gap:24px}
