@@ -27,7 +27,7 @@
   --serif:'EB Garamond',Georgia,serif;
   --sans:'Inter',system-ui,sans-serif;
   --mono:'JetBrains Mono',monospace;
-  --sidebar:350px;
+  --sidebar:300px;
 }
 html{scroll-behavior:smooth}
 body{
@@ -55,59 +55,66 @@ body{
   border-right:1px solid var(--border);
   display:flex;
   flex-direction:column;
-  padding:36px 28px 32px;
+  padding:28px 24px 24px;
   overflow-y:auto;
   z-index:100;
   scrollbar-width:none;
 }
 .sidebar::-webkit-scrollbar{display:none}
 .sb-photo{
-  width:120px;height:140px;border-radius:8px;
-  overflow:hidden;border:1px solid var(--border);
-  margin-bottom:20px;flex-shrink:0;
+  width:100px;height:100px;border-radius:50%;
+  overflow:hidden;border:2px solid var(--border);
+  margin-bottom:14px;flex-shrink:0;
 }
 .sb-photo img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
 .sb-name{
   font-family:var(--serif);
-  font-size:20px;font-weight:500;
+  font-size:17px;font-weight:500;
   line-height:1.2;color:var(--text);
-  margin-bottom:6px;letter-spacing:-.01em;
+  margin-bottom:4px;letter-spacing:-.01em;
 }
 .sb-title{
   font-size:12px;color:var(--muted);
-  line-height:1.5;margin-bottom:24px;
+  line-height:1.5;margin-bottom:6px;
 }
+.sb-location{
+  font-family:var(--mono);font-size:10px;color:var(--dim);
+  letter-spacing:.04em;margin-bottom:14px;
+  display:flex;align-items:center;gap:5px;
+}
+.sb-location::before{content:"📍";font-size:10px}
 .sb-status{
   display:inline-flex;align-items:center;gap:5px;
-  font-family:var(--mono);font-size:9px;
+  font-family:var(--mono);font-size:10px;
   color:var(--green);
-  background:rgba(45,122,79,.07);
-  border:1px solid rgba(45,122,79,.18);
-  padding:3px 8px;border-radius:20px;
-  letter-spacing:.05em;margin-bottom:24px;
+  background:rgba(45,122,79,.12);
+  border:1px solid rgba(45,122,79,.28);
+  padding:4px 10px;border-radius:20px;
+  letter-spacing:.04em;margin-bottom:16px;
   width:fit-content;
+  font-weight:500;
 }
 .sb-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2.5s ease-in-out infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
 /* sidebar nav */
-.sb-nav{display:flex;flex-direction:column;gap:2px;margin-bottom:auto}
+.sb-nav{display:flex;flex-direction:column;gap:1px;margin-bottom:16px}
 .sb-nav a{
-  font-size:13px;color:var(--muted);text-decoration:none;
-  padding:7px 12px;border-radius:4px;
+  font-size:12px;color:var(--muted);text-decoration:none;
+  padding:5px 10px;border-radius:4px;
   transition:color .15s,background .15s;
-  display:flex;align-items:center;gap:10px;letter-spacing:.01em;
+  display:flex;align-items:center;gap:8px;letter-spacing:.01em;
 }
 .sb-nav a:hover{color:var(--text);background:var(--bg2)}
 .sb-nav a.active{color:var(--accent);background:var(--accent-light);font-weight:500}
-.sb-nav a .nav-icon{font-size:14px;width:18px;text-align:center;flex-shrink:0}
+.sb-nav a .nav-icon{font-size:12px;width:16px;text-align:center;flex-shrink:0}
 
 /* sidebar links */
-.sb-links{display:flex;flex-direction:column;gap:8px;margin-top:32px}
+.sb-links{display:flex;flex-direction:column;gap:0;margin-top:0;border-top:1px solid var(--border);padding-top:12px}
 .sb-link{
   display:flex;align-items:center;justify-content:space-between;
   font-size:12px;color:var(--muted);text-decoration:none;
-  padding:8px 0;border-bottom:1px solid var(--border);
+  padding:6px 0;border-bottom:1px solid var(--border);
   transition:color .15s;
 }
 .sb-link:last-child{border-bottom:none}
@@ -429,6 +436,7 @@ body{
   </div>
   <div class="sb-name">Deepali Balakrishna<br>Ksheersagar</div>
   <div class="sb-title">AI/ML Engineer · NYU MS Data Science</div>
+  <div class="sb-location">New York, NY · open to relocation</div>
   <div class="sb-status"><span class="sb-dot"></span>open to work</div>
 
   <nav class="sb-nav">
@@ -470,11 +478,11 @@ body{
 
   <!-- HOME -->
   <section id="home" class="section" style="padding-top:0;border-top:none;margin-top:0">
-    <div class="section-eyebrow">New York, NY</div>
+    
     <h1 class="hero-headline">
-      Machine Learning<br>Engineer &amp; <em>Data Scientist</em>
+      Machine Learning Engineer<br>&amp; Data Scientist
     </h1>
-    <p class="hero-sub">I build AI systems that work in the real world: LLM pipelines, multi-agent architectures, NLP at scale. From research to production. NYU MS Data Science graduate, May 2026.</p>
+    <p class="hero-sub">I build AI systems that work in the real world: LLM pipelines, multi-agent architectures, and NLP at scale. NYU MS Data Science, May 2026.</p>
     <div class="hero-chips">
       <span class="hero-chip">LLMs &amp; Agentic AI</span>
       <span class="hero-chip">NLP at Scale</span>
@@ -504,12 +512,12 @@ body{
 
   <!-- ABOUT -->
   <section id="about" class="section reveal">
-    <div class="section-eyebrow">About me</div>
-    <h2 class="section-title">Building AI that <em>ships</em></h2>
+    <div class="section-eyebrow">About</div>
+    <h2 class="section-title">Building AI that <em>works</em></h2>
     <div class="about-grid">
       <div class="about-body">
-        <p>I'm a Data Science graduate from NYU (May 2026) with 3+ years across ML engineering, NLP research, and data engineering. My work spans LLMs, agentic AI, healthcare applications, and production ML pipelines. I care about the full journey from messy data to something deployed and reliable.</p>
-        <p>Previously a Machine Learning Engineer at CGI for 2 years, building NER pipelines on 2M+ documents for a Fortune 500 telecom client. Also at The Global Consortium of Nursing &amp; Midwifery Studies (multilingual NLP across 40+ languages) and Accenture (data engineering). Most recently research at NYU Rory Meyers applying BERT and statistical modeling to global healthcare data.</p>
+        <p>I'm a Data Science graduate from NYU (May 2026) with 3+ years across ML engineering, NLP research, and data engineering. My work spans LLMs, agentic AI, healthcare applications, and production ML pipelines. I care about the full journey: from messy unstructured data to something reliable in production.</p>
+        <p>Previously a Machine Learning Engineer at CGI for 2 years, building NER pipelines on 2M+ documents for a Fortune 500 telecom client. Also at The Global Consortium of Nursing &amp; Midwifery Studies (multilingual NLP across 40+ languages) and Accenture (data engineering). Most recently, conducting research at NYU Rory Meyers applying BERT and statistical modeling to global healthcare data.</p>
         <p>Outside work, I'm a Women in Data Science Ambassador (2026) and enjoy the intersection of AI with healthcare. When I'm not coding, I love painting, reading, and gardening. You can find my art on <a href="https://www.instagram.com/artkive_by_dee/" target="_blank" rel="noopener">Instagram ↗</a>.</p>
       </div>
       <div class="about-aside">
@@ -526,7 +534,7 @@ body{
         </div>
         <div class="aside-block">
           <div class="aside-block-label">Location</div>
-          <div class="aside-block-val">New York, NY<br>Open to relocation</div>
+          <div class="aside-block-val">New York, NY · Open to relocation</div>
         </div>
       </div>
     </div>
@@ -534,8 +542,8 @@ body{
 
   <!-- EXPERIENCE -->
   <section id="experience" class="section reveal">
-    <div class="section-eyebrow">Work history</div>
-    <h2 class="section-title">3+ YOE across <em>4 roles</em></h2>
+    <div class="section-eyebrow">Where I've worked</div>
+    <h2 class="section-title">Work Experience</h2>
 
     <div class="exp-item reveal">
       <div class="exp-logo logo-nyu">NYU</div>
@@ -597,7 +605,7 @@ body{
         <div class="exp-company">Accenture</div>
         <ul class="exp-blist">
           <li>Migrated relational database tables to Hadoop File System (HDFS).</li>
-          <li>Generated 500+ config files, HQL query files and AutoSys Job Boxes using Spark engine for data ingestion pipelines.</li>
+          <li>Generated 500+ config files, HQL query files, and AutoSys Job Boxes using Spark engine for data ingestion pipelines.</li>
         </ul>
         <div class="exp-chips"><span class="exp-chip">SQL</span><span class="exp-chip">Hadoop / HDFS</span><span class="exp-chip">Apache Spark</span><span class="exp-chip">HiveQL</span><span class="exp-chip">AutoSys</span></div>
       </div>
@@ -606,8 +614,8 @@ body{
 
   <!-- PROJECTS -->
   <section id="projects" class="section reveal">
-    <div class="section-eyebrow">Selected work</div>
-    <h2 class="section-title">Things I've <em>built</em></h2>
+    <div class="section-eyebrow">What I've built</div>
+    <h2 class="section-title">Projects</h2>
 
     <div class="proj-item reveal">
       <div class="proj-header">
@@ -660,7 +668,7 @@ body{
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">07</span><span class="proj-title">Voice-Based Disease Prediction</span></div>
       <div class="proj-meta"><span class="proj-year">2020</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Voice-Based-Disease-Prediction-using-NLP-Random-Forest-on-Raspberry-Pi" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://www.ijert.org/research/symptoms-extraction-from-a-voice-input-using-natural-language-processing-IJERTV9IS040645.pdf" target="_blank" class="proj-link">paper ↗</a></div>
-      <p class="proj-desc">End-to-end voice disease prediction on Raspberry Pi. STT to NLP symptom extraction to Random Forest to TTS feedback. 95.02% accuracy. ₹37,000 govt. funding. Published in IJERT.</p>
+      <p class="proj-desc">End-to-end voice disease prediction on Raspberry Pi: voice input → NLP symptom extraction → Random Forest classifier → TTS feedback. 95.02% accuracy. ₹37,000 govt. funding. Published in IJERT.</p>
       <div class="proj-tags"><span class="proj-tag hi">Python</span><span class="proj-tag hi">NLTK</span><span class="proj-tag hi">Scikit-learn</span><span class="proj-tag">Random Forest</span><span class="proj-tag">STT/TTS</span><span class="proj-tag">Raspberry Pi</span></div>
     </div>
 
@@ -686,8 +694,8 @@ body{
 
   <!-- SKILLS -->
   <section id="skills" class="section reveal">
-    <div class="section-eyebrow">Technical skills</div>
-    <h2 class="section-title">Built for <em>AI/ML</em> &amp; agentic roles</h2>
+    <div class="section-eyebrow">Skills I work with</div>
+    <h2 class="section-title">Built for the <em>AI/ML</em> stack</h2>
     <div class="skills-grid">
       <div class="sg sg-llm">
         <div class="sg-label">⬡ LLMs &amp; Agentic AI</div>
@@ -710,8 +718,8 @@ body{
 
   <!-- EDUCATION -->
   <section id="education" class="section reveal">
-    <div class="section-eyebrow">Academic background</div>
-    <h2 class="section-title">Degrees &amp; <em>honors</em></h2>
+    <div class="section-eyebrow">Education</div>
+    <h2 class="section-title">Degrees &amp; <em>Honors</em></h2>
 
     <div class="edu-item reveal">
       <div class="exp-logo logo-nyu-edu">NYU</div>
@@ -746,9 +754,9 @@ body{
 
   <!-- CONNECT -->
   <section id="connect" class="section reveal">
-    <div class="section-eyebrow">Get in touch</div>
-    <h2 class="section-title">Let's build something <em>together</em></h2>
-    <p style="font-size:15px;color:var(--muted);line-height:1.8;max-width:480px;margin-bottom:32px">Open to full-time roles in ML engineering, applied AI, and NLP. Based in New York, open to relocation.</p>
+    <div class="section-eyebrow">Say hello</div>
+    <h2 class="section-title">Say hello, let's <em>build something</em></h2>
+    <p style="font-size:15px;color:var(--muted);line-height:1.8;max-width:480px;margin-bottom:32px">Open to full-time roles in ML engineering, applied AI, and NLP. Based in New York and open to relocation.</p>
     <div class="connect-links">
       <a href="mailto:db5144@nyu.edu" class="connect-btn primary">email me ↗</a>
       <a href="https://www.linkedin.com/in/deepali-bk/" target="_blank" rel="noopener" class="connect-btn">linkedin</a>
