@@ -256,7 +256,11 @@ body{
 .proj-dot{width:3px;height:3px;border-radius:50%;background:var(--dim)}
 .proj-link{font-family:var(--mono);font-size:10px;color:var(--blue);text-decoration:none;letter-spacing:.02em;transition:color .15s}
 .proj-link:hover{color:var(--accent)}
-.proj-desc{font-size:13px;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:10px}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.7;max-width:640px;margin-bottom:10px}
+.proj-blist{list-style:none;display:flex;flex-direction:column;gap:5px;margin:0 0 12px;max-width:640px}
+.proj-blist li{font-size:13px;color:var(--muted);line-height:1.65;padding-left:16px;position:relative}
+.proj-blist li::before{content:'·';position:absolute;left:0;color:var(--dim);font-size:16px;line-height:1.4}
+.proj-blist li strong{color:var(--sub);font-weight:500}
 .proj-tags{display:flex;flex-wrap:wrap;gap:5px}
 .proj-tag{
   font-family:var(--mono);font-size:10px;
@@ -433,6 +437,7 @@ body{
     <a href="#projects"><span class="nav-icon">❋</span>Projects</a>
     <a href="#skills"><span class="nav-icon">⬡</span>Skills</a>
     <a href="#education"><span class="nav-icon">◇</span>Education</a>
+    <a href="#community"><span class="nav-icon">♡</span>Community</a>
     <a href="#connect"><span class="nav-icon">✉</span>Let's build</a>
   </nav>
   <div class="sb-links">
@@ -469,12 +474,12 @@ body{
         <h1 class="hero-headline">
           Machine Learning Engineer<br>&amp; Data Scientist
         </h1>
-        <p class="hero-sub">I build AI systems that work in the real world: LLM pipelines, multi-agent architectures, and NLP at scale. NYU MS Data Science, May 2026.</p>
+        <p class="hero-sub">I build, evaluate and ship LLM systems, ranking pipelines and NLP at scale: from LoRA + RLHF fine-tuning to a production pipeline scoring 3M+ documents a day at 0.98 precision. NYU MS Data Science, May 2026.</p>
         <div class="hero-chips">
-          <span class="hero-chip">LLMs &amp; Agentic AI</span>
-          <span class="hero-chip">NLP at Scale</span>
-          <span class="hero-chip">Multi-agent Systems</span>
-          <span class="hero-chip">Fine-tuning &amp; RL</span>
+          <span class="hero-chip">LLM Post-Training (LoRA, RLHF)</span>
+          <span class="hero-chip">Agentic AI &amp; A2A</span>
+          <span class="hero-chip">Evaluation &amp; Statistics</span>
+          <span class="hero-chip">NLP &amp; Ranking at Scale</span>
           <span class="hero-chip">RAG Pipelines</span>
         </div>
         <div class="hero-stats">
@@ -487,8 +492,8 @@ body{
             <div class="hero-stat-l">Projects shipped</div>
           </div>
           <div>
-            <div class="hero-stat-n">2M+</div>
-            <div class="hero-stat-l">Documents processed</div>
+            <div class="hero-stat-n">3M+</div>
+            <div class="hero-stat-l">Documents scored per day</div>
           </div>
           <div>
             <div class="hero-stat-n">40+</div>
@@ -501,7 +506,7 @@ body{
           <div class="aside-block-label">Honors &amp; Recognition</div>
           <div class="award-list">
             <div class="award-item"><span class="award-icon">🏆</span>3rd place · GDG NYC × NYU 2026</div>
-            <div class="award-item"><span class="award-icon">🏅</span>Violet Internship &amp; Research Award 2025</div>
+            <div class="award-item"><span class="award-icon">🏅</span>Violet Internship &amp; Research Award 2025 &amp; 2026</div>
             <div class="award-item"><span class="award-icon">🌐</span>WiDS Ambassador 2026</div>
             <div class="award-item"><span class="award-icon">📄</span>Published · IJERT</div>
             <div class="award-item"><span class="award-icon">💰</span>₹37,000 Govt. Funding · IEDC</div>
@@ -518,8 +523,8 @@ body{
     <div id="about" class="reveal" style="margin-top:48px;scroll-margin-top:16px">
       <h2 class="section-title" style="margin-top:0">Building AI that <em>works</em></h2>
       <div class="about-body">
-        <p>I'm a Data Science graduate from NYU (May 2026) with 3+ years across ML engineering, NLP research, and data engineering. My work spans LLMs, agentic AI, healthcare applications, and production ML pipelines. I care about the full journey: from messy unstructured data to something reliable in production.</p>
-        <p>Previously a Machine Learning Engineer at CGI for 2 years, building NER pipelines on 2M+ documents for a Fortune 500 telecom client. Also at The Global Consortium of Nursing &amp; Midwifery Studies (multilingual NLP across 40+ languages) and Accenture (data engineering). Most recently, a Research Affiliate at NYU Rory Meyers, applying BERT and statistical modeling to global healthcare data.</p>
+        <p>I'm a Machine Learning Engineer and Data Scientist (NYU MS Data Science, May 2026, GPA 3.7) with 3+ years building, evaluating and adapting NLP, ranking and LLM systems. I care about the full journey: messy unstructured data, offline evaluation against baselines, then something reliable in production. I partner with engineers to ship models and measure quality, latency and throughput.</p>
+        <p>At CGI I led NER over 2M+ documents for a Fortune 500 telecom client (71% less manual review) and built a Flair + FastText classification and ranking pipeline that scored 60,000+ employee reviews for C-suite planning. At Accenture I built Spark ingestion pipelines into HDFS. At NYU Rory Meyers and The Global Consortium of Nursing &amp; Midwifery Studies, I apply BERT, RoBERTa, BERTopic and statistical modeling to survey data from 90+ countries.</p>
         <p>Outside work, I'm a Women in Data Science Ambassador (2026) and enjoy the intersection of AI with healthcare. When I'm not coding, I love painting, reading, and gardening. You can find my art on <a href="https://www.instagram.com/artkive_by_dee/" target="_blank" rel="noopener">Instagram ↗</a>.</p>
       </div>
     </div>
@@ -533,15 +538,16 @@ body{
       <div class="exp-right">
         <div class="exp-header">
           <span class="exp-role">Research Affiliate</span>
-<span class="exp-period">Sep 2025 – Present</span>
-</div>
-<div class="exp-company">NYU Rory Meyers College of Nursing · previously Graduate Research Assistant</div>
+          <span class="exp-period">Sep 2025 – Present</span>
+        </div>
+        <div class="exp-company">NYU Rory Meyers College of Nursing · previously Graduate Research Assistant</div>
         <ul class="exp-blist">
-          <li>Statistical modeling on survey data from 90+ countries to perform pattern recognition in healthcare during COVID-19.</li>
-          <li>Built an interactive Tableau dashboard to visualize findings for the organization's public-facing website.</li>
-          <li>BERT-based multi-class classifier achieving 87% accuracy on 5,000+ survey responses on violence faced by medical professionals.</li>
+          <li>Removed manual labeling by fine-tuning a BERT classifier to 87% accuracy on 5,000+ survey responses on violence faced by medical professionals, end to end.</li>
+          <li>Found cross-national healthcare patterns across 90+ countries using statistical modeling and hypothesis testing, shared in a Tableau dashboard on the organization's public website.</li>
+          <li>Benchmarked BERTopic vs LDA on 10,000+ nurse survey responses in 26 languages to test whether topic modeling can complement qualitative analysis: LDA separated themes more clearly, while BERTopic's clusters were better for exploration.</li>
+          <li>Tracking how PPE, violence and burnout topics shift over time against pandemic phases.</li>
         </ul>
-        <div class="exp-chips"><span class="exp-chip">Python</span><span class="exp-chip">BERT</span><span class="exp-chip">Transformers</span><span class="exp-chip">Statistical Modeling</span><span class="exp-chip">Tableau</span></div>
+        <div class="exp-chips"><span class="exp-chip">Python</span><span class="exp-chip">BERT</span><span class="exp-chip">BERTopic</span><span class="exp-chip">LDA</span><span class="exp-chip">Hypothesis Testing</span><span class="exp-chip">Statistical Modeling</span><span class="exp-chip">Tableau</span></div>
       </div>
     </div>
     <div class="exp-item reveal">
@@ -553,8 +559,7 @@ body{
         </div>
         <div class="exp-company">The Global Consortium of Nursing &amp; Midwifery Studies</div>
         <ul class="exp-blist">
-          <li>Analyzed 21,000+ textual survey responses using multilingual RoBERTa (HuggingFace) across 40+ languages on PPE usage and funding during COVID-19.</li>
-          <li>Applied sentiment analysis and topic modeling to surface cross-country trends for public health reporting.</li>
+          <li>Pulled ranked, actionable signals on COVID-19 PPE usage from 21,000+ survey responses in 40+ languages, using multilingual RoBERTa, sentiment analysis and topic modeling, to inform organizational policy.</li>
         </ul>
         <div class="exp-chips"><span class="exp-chip">Python</span><span class="exp-chip">Multilingual RoBERTa</span><span class="exp-chip">Sentiment Analysis</span><span class="exp-chip">Topic Modeling</span><span class="exp-chip">HuggingFace</span></div>
       </div>
@@ -566,13 +571,13 @@ body{
           <span class="exp-role">Machine Learning Engineer</span>
           <span class="exp-period">Feb 2022 – Jun 2023</span>
         </div>
-        <div class="exp-company">CGI Inc.</div>
+        <div class="exp-company">CGI Inc. · Bangalore, India</div>
         <ul class="exp-blist">
-          <li>Led the NER implementation as SME for a Fortune 500 telecom client, extracting text and tabular entities from 2M+ unstructured documents using SpaCy.</li>
-          <li>Designed a structured database from extracted entities, reducing manual review time by 71%.</li>
-          <li>Built an automated classification system (Flair + FastText) to categorize 10,000+ employee and client reviews for C-suite FY2023 strategic planning.</li>
+          <li>Cut manual review hours by 71% for a Fortune 500 telecom client with an end-to-end SpaCy NER pipeline over 2M+ documents, extracting text and tabular entities into a structured database.</li>
+          <li>Informed C-suite planning for FY 2023-24 with a text classification and ranking pipeline (Flair + FastText) that scored 60,000+ employee reviews.</li>
+          <li>Designed and refined CGI Pulse, a hyper-automation platform integrating AI and ML for end-to-end AI lifecycle services.</li>
         </ul>
-        <div class="exp-chips"><span class="exp-chip">SpaCy</span><span class="exp-chip">Flair</span><span class="exp-chip">FastText</span><span class="exp-chip">NER</span><span class="exp-chip">ETL Pipelines</span><span class="exp-chip">Database Design</span></div>
+        <div class="exp-chips"><span class="exp-chip">SpaCy</span><span class="exp-chip">Flair</span><span class="exp-chip">FastText</span><span class="exp-chip">NER</span><span class="exp-chip">Ranking</span><span class="exp-chip">Database Design</span></div>
       </div>
     </div>
     <div class="exp-item reveal">
@@ -580,12 +585,12 @@ body{
       <div class="exp-right">
         <div class="exp-header">
           <span class="exp-role">Data Engineer</span>
-          <span class="exp-period">2020 – 2021</span>
+          <span class="exp-period">Dec 2020 – Oct 2021</span>
         </div>
-        <div class="exp-company">Accenture</div>
+        <div class="exp-company">Accenture · Bangalore, India</div>
         <ul class="exp-blist">
-          <li>Migrated relational database tables to Hadoop File System (HDFS).</li>
-          <li>Generated 500+ config files, HQL query files, and AutoSys Job Boxes using the Spark engine for data ingestion pipelines.</li>
+          <li>Built Spark ingestion pipelines that migrated relational tables into HDFS for large-scale batch processing.</li>
+          <li>Automated nightly orchestration with 500+ config files, HQL query files and AutoSys Job Boxes.</li>
         </ul>
         <div class="exp-chips"><span class="exp-chip">SQL</span><span class="exp-chip">Hadoop / HDFS</span><span class="exp-chip">Apache Spark</span><span class="exp-chip">HiveQL</span><span class="exp-chip">AutoSys</span></div>
       </div>
@@ -596,64 +601,69 @@ body{
     <div class="section-eyebrow">What I've built</div>
     <h2 class="section-title">Projects</h2>
     <div class="proj-item reveal">
-      <div class="proj-header">
-        <span class="proj-num">01</span>
-        <span class="proj-title">TenantShield: AI Building Inspection Platform</span>
-        <span class="proj-badge">🏆 3rd place · GDG NYC × NYU 2026</span>
-      </div>
+      <div class="proj-header"><span class="proj-num">01</span><span class="proj-title">TenantShield: AI Building Inspection Platform</span><span class="proj-badge">🏆 3rd place · GDG NYC × NYU 2026</span></div>
       <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/TenantShield" target="_blank" class="proj-link">github ↗</a></div>
-      <p class="proj-desc">Multi-agent AI platform helping NYC tenants document housing violations and auto-generate formal complaints. 3-agent A2A pipeline with Gemini Live API for real-time voice intake and multimodal image analysis. Judged by engineers from Meta, Bloomberg, Instagram &amp; Google.</p>
-      <div class="proj-tags"><span class="proj-tag hi">Gemini Live API</span><span class="proj-tag hi">Vertex AI</span><span class="proj-tag hi">A2A multi-agent</span><span class="proj-tag">Kotlin</span><span class="proj-tag">Jetpack Compose</span><span class="proj-tag">Firebase</span><span class="proj-tag">Google Cloud</span></div>
+      <p class="proj-desc">Multi-agent AI platform that helps NYC tenants document housing violations and auto-generate formal complaints. Built in one day at NYC Open Data Week with 3 NYU teammates, and judged by engineers from Meta, Google, Bloomberg &amp; Instagram.</p>
+      <ul class="proj-blist"><li><strong>Scores NYC Housing Maintenance Code violations</strong> (Class A / B / C) from tenant photos using Vertex AI multimodal classification.</li><li><strong>3-agent A2A pipeline</strong> (Interacting, Inspection, Filing) coordinated by a central state machine, ending in a legally formatted complaint document.</li><li><strong>Real-time voice intake</strong> through the Gemini Live API over WebSocket, with the Gemini REST API for document generation.</li><li>Full stack: Android app (Kotlin, Jetpack Compose, CameraX) plus a web app, backed by Firebase Auth, Firestore and Storage.</li></ul>
+      <div class="proj-tags"><span class="proj-tag hi">Gemini Live API</span><span class="proj-tag hi">Vertex AI</span><span class="proj-tag hi">A2A multi-agent</span><span class="proj-tag">Gemini REST API</span><span class="proj-tag">Kotlin</span><span class="proj-tag">Jetpack Compose</span><span class="proj-tag">CameraX</span><span class="proj-tag">Firebase</span><span class="proj-tag">Google Cloud</span></div>
     </div>
     <div class="proj-item reveal">
-      <div class="proj-header"><span class="proj-num">02</span><span class="proj-title">CoffeeAgntcy: Multi-Agent System Optimization</span></div>
+      <div class="proj-header"><span class="proj-num">02</span><span class="proj-title">CoffeeAgntcy: Real-Time Multi-Agent System Optimization</span></div>
       <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Coffee-Agentcy-Optimization" target="_blank" class="proj-link">github ↗</a></div>
-      <p class="proj-desc">Profiled and optimized a distributed multi-agent AI system. Cut latency by 17% and achieved 12,000x throughput on cached queries using async Python, TCP connection pooling, and response caching.</p>
-      <div class="proj-tags"><span class="proj-tag hi">Python asyncio</span><span class="proj-tag hi">LangGraph</span><span class="proj-tag">GPT-4o</span><span class="proj-tag">Docker</span><span class="proj-tag">cProfile</span><span class="proj-tag">SLIM TCP</span></div>
+      <p class="proj-desc">Profiled and optimized an open-source, 10-container LangGraph A2A system to speed up real-time serving. Cut latency by 17% and raised throughput 12,000x on cached queries.</p>
+      <ul class="proj-blist"><li><strong>Found the bottleneck first:</strong> cProfile traced the slowdown to OpenAI API I/O.</li><li><strong>Fixed it with</strong> asyncio + aiohttp concurrency, MD5-keyed response caching and TCP connection pooling.</li></ul>
+      <div class="proj-tags"><span class="proj-tag hi">Python asyncio</span><span class="proj-tag hi">aiohttp</span><span class="proj-tag hi">LangGraph</span><span class="proj-tag">GPT-4o</span><span class="proj-tag">Docker</span><span class="proj-tag">cProfile</span><span class="proj-tag">SLIM TCP</span></div>
     </div>
     <div class="proj-item reveal">
-      <div class="proj-header"><span class="proj-num">03</span><span class="proj-title">Article Ingestion Pipeline, Muck Rack</span><span class="proj-badge blue">capstone</span></div>
+      <div class="proj-header"><span class="proj-num">03</span><span class="proj-title">HTML Quality Detection &amp; Ranking Pipeline, Muck Rack</span><span class="proj-badge blue">capstone</span></div>
       <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Article-Ingestion-Pipeline-for-Muck-Rack" target="_blank" class="proj-link">github ↗</a></div>
-      <p class="proj-desc">Production-grade HTML quality detection pipeline achieving 0.98 precision / 0.92 F1. Combined BeautifulSoup + XGBoost with rule-based heuristics and GPT-4.1-mini few-shot labeling to eliminate manual QA bottlenecks.</p>
-      <div class="proj-tags"><span class="proj-tag hi">Python</span><span class="proj-tag hi">XGBoost</span><span class="proj-tag hi">GPT-4.1</span><span class="proj-tag">BeautifulSoup</span><span class="proj-tag">Few-shot prompting</span><span class="proj-tag">ML Pipeline</span></div>
+      <p class="proj-desc">Production pipeline that scores 3M+ HTML documents a day at 0.98 precision / 0.92 F1, removing manual QA bottlenecks for PR platform Muck Rack.</p>
+      <ul class="proj-blist"><li><strong>Model:</strong> XGBoost classifier on BeautifulSoup-extracted features, combined with rule-based heuristics.</li><li><strong>Labels:</strong> GPT-4.1-mini few-shot labeling expanded an imbalanced seed dataset.</li><li><strong>Evaluation:</strong> beat Isolation Forest and logistic regression baselines offline.</li><li><strong>Reliability:</strong> feature monitoring flags model decay before quality drops.</li></ul>
+      <div class="proj-tags"><span class="proj-tag hi">Python</span><span class="proj-tag hi">XGBoost</span><span class="proj-tag hi">GPT-4.1-mini</span><span class="proj-tag">BeautifulSoup</span><span class="proj-tag">Apache Spark</span><span class="proj-tag">Few-shot labeling</span><span class="proj-tag">Feature monitoring</span></div>
     </div>
     <div class="proj-item reveal">
-      <div class="proj-header"><span class="proj-num">04</span><span class="proj-title">Strategic Clarification in LLM Agents via CMDPs</span></div>
+      <div class="proj-header"><span class="proj-num">04</span><span class="proj-title">To Ask or Not to Ask: Strategic Clarification in LLM Agents via CMDPs</span></div>
       <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/rl_llm_multiturn_cmdp" target="_blank" class="proj-link">github ↗</a></div>
-      <p class="proj-desc">Fine-tuned Qwen2.5-Coder-7B with LoRA + PPO-Lagrangian reinforcement learning to decide when to ask clarifying questions under a strict budget. Achieved +6.2pp improvement in code correctness over baseline on HumanEvalComm.</p>
-      <div class="proj-tags"><span class="proj-tag hi">PyTorch</span><span class="proj-tag hi">PPO-Lagrangian</span><span class="proj-tag hi">LoRA</span><span class="proj-tag">Qwen2.5-Coder-7B</span><span class="proj-tag">Constrained MDP</span><span class="proj-tag">HuggingFace</span></div>
+      <p class="proj-desc">Fine-tuned Qwen2.5-Coder-7B with LoRA + RLHF (PPO-Lagrangian) to decide when to ask a clarifying question under a strict question budget, framed as a Constrained MDP. The best policy beats the untrained baseline by +6.2pp MT pass@1 (p &lt; 0.0001) on HumanEvalComm, across 469 held-out problems. Team of 3 at NYU CDS.</p>
+      <ul class="proj-blist"><li><strong>Learns when to ask, not how much:</strong> average questions stayed flat (0.855 to 0.846) while accuracy rose, with the biggest gains on the most degraded specs (+20.4pp on context + partial).</li><li><strong>Mapped the budget trade-off</strong> with three policies (d1 = 0, 0.5, 1): never asking drops 8.0pp below baseline, so questions are worth their cost.</li><li><strong>Setup:</strong> GPT-4o-mini user simulator, sandboxed code execution for pass@1, and a Lagrange multiplier that tunes question cost automatically.</li><li><strong>Debugged a log-prob mismatch</strong> caused by logit-processor filtering in generate(), cutting approx KL from ~3 to ~0.007 and unblocking PPO.</li></ul>
+      <div class="proj-tags"><span class="proj-tag hi">PyTorch</span><span class="proj-tag hi">PPO-Lagrangian</span><span class="proj-tag hi">LoRA</span><span class="proj-tag">RLHF</span><span class="proj-tag">Qwen2.5-Coder-7B</span><span class="proj-tag">Constrained MDP</span><span class="proj-tag">HumanEvalComm</span><span class="proj-tag">HuggingFace</span></div>
     </div>
     <!-- show more toggle -->
     <div id="more-projects" style="display:none">
     <div class="proj-item reveal">
-      <div class="proj-header"><span class="proj-num">05</span><span class="proj-title">Emotion Learning Evaluation for LLMs</span></div>
-      <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/NLU-project" target="_blank" class="proj-link">github ↗</a></div>
-      <p class="proj-desc">Benchmarked emotional intelligence of Gemma, Qwen, and Llama using zero-shot and few-shot prompt engineering. All models exceeded chance performance. Evaluation via LangChain + HuggingFace.</p>
-      <div class="proj-tags"><span class="proj-tag hi">LangChain</span><span class="proj-tag hi">HuggingFace</span><span class="proj-tag">Gemma</span><span class="proj-tag">Qwen</span><span class="proj-tag">Llama</span><span class="proj-tag">LLM Eval</span></div>
+      <div class="proj-header"><span class="proj-num">05</span><span class="proj-title">Fine-grained Emotion Orientation Learning for LLMs</span></div>
+      <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/NLU-project" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/NLU-project/blob/main/NLU_SP25_Final_Report_v01.pdf" target="_blank" class="proj-link">report ↗</a></div>
+      <p class="proj-desc">Tested whether small LLMs can learn one person's emotional judgments instead of the crowd-sourced majority label. NYU NLU course project with 2 teammates.</p>
+      <ul class="proj-blist"><li><strong>Task design:</strong> per-rater soft emotion distributions over 27 GoEmotions categories, turned into personalized multiple-choice matching questions.</li><li><strong>Result:</strong> LLaMA-3.2, Qwen-2.5 and Gemma-2 all beat chance in zero-shot and 1/3/10-shot tests, but trailed human inter-rater agreement by 15 to 25 points.</li><li><strong>Insight:</strong> up to 10 personalized examples gave only marginal gains, and layer-wise activation probing showed later layers separate emotionally coherent from incoherent pairs.</li><li>Fine-tuned a LLaMA-3-1B evaluator on high-agreement examples for automated scoring.</li></ul>
+      <div class="proj-tags"><span class="proj-tag hi">LangChain</span><span class="proj-tag hi">HuggingFace</span><span class="proj-tag">GoEmotions</span><span class="proj-tag">Gemma-2</span><span class="proj-tag">Qwen-2.5</span><span class="proj-tag">LLaMA-3.2</span><span class="proj-tag">LLM Eval</span><span class="proj-tag">Interpretability</span></div>
     </div>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">06</span><span class="proj-title">heart-maxxxxing: Cardiac Rehab Gamification</span><span class="proj-badge blue">Pulse Foundry 2026</span></div>
       <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://devpost.com/software/heart-maxxxxing" target="_blank" class="proj-link">devpost ↗</a></div>
-      <p class="proj-desc">Mario-style browser game turning 36-session cardiac rehab into an interactive world-map adventure. Gemini API as in-game AI guide with Framer Motion. Deployed on Vercel.</p>
-      <div class="proj-tags"><span class="proj-tag hi">Gemini API</span><span class="proj-tag">Next.js</span><span class="proj-tag">React</span><span class="proj-tag">Tailwind CSS</span><span class="proj-tag">Framer Motion</span></div>
+      <p class="proj-desc">Mario-style browser game that turns the 36-session cardiac rehab program into an interactive world-map adventure. Built for the Pulse Foundry AI Healthcare Hackathon with 3 teammates.</p>
+      <ul class="proj-blist"><li><strong>Sessions become levels</strong> on a platformer map, with power-ups, milestones and safety pause prompts for over-exertion.</li><li><strong>Gemini API as an in-game guide</strong> giving personalized, encouraging tips at each stage of recovery.</li><li>Accessible, high-contrast pixel-art UI with Framer Motion animations, deployed on Vercel.</li></ul>
+      <div class="proj-tags"><span class="proj-tag hi">Gemini API</span><span class="proj-tag">Next.js</span><span class="proj-tag">React</span><span class="proj-tag">Tailwind CSS</span><span class="proj-tag">Framer Motion</span><span class="proj-tag">Vercel</span></div>
     </div>
     <div class="proj-item reveal">
-      <div class="proj-header"><span class="proj-num">07</span><span class="proj-title">Voice-Based Disease Prediction</span></div>
+      <div class="proj-header"><span class="proj-num">07</span><span class="proj-title">Voice-Based Disease Prediction (Interactive Health Bot)</span></div>
       <div class="proj-meta"><span class="proj-year">2020</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Voice-Based-Disease-Prediction-using-NLP-Random-Forest-on-Raspberry-Pi" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://www.ijert.org/research/symptoms-extraction-from-a-voice-input-using-natural-language-processing-IJERTV9IS040645.pdf" target="_blank" class="proj-link">paper ↗</a></div>
-      <p class="proj-desc">End-to-end voice disease prediction on Raspberry Pi: voice input → NLP symptom extraction → Random Forest classifier → TTS feedback. 95.02% accuracy. ₹37,000 govt. funding. Published in IJERT.</p>
+      <p class="proj-desc">End-to-end voice disease prediction on a Raspberry Pi at 95.02% accuracy. Earned ₹37,000 in government funding (IEDC) and was published in IJERT.</p>
+      <ul class="proj-blist"><li><strong>Pipeline:</strong> speech-to-text, NLP symptom extraction, Random Forest classification, then text-to-speech feedback.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">Python</span><span class="proj-tag hi">NLTK</span><span class="proj-tag hi">Scikit-learn</span><span class="proj-tag">Random Forest</span><span class="proj-tag">STT/TTS</span><span class="proj-tag">Raspberry Pi</span></div>
     </div>
     <div class="proj-item reveal">
-      <div class="proj-header"><span class="proj-num">08</span><span class="proj-title">VertiBuds: AI-Assisted Vertigo Support System</span></div>
-      <div class="proj-meta"><span class="proj-year">2024</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Vertibuds" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://devpost.com/software/vertibuds" target="_blank" class="proj-link">devpost ↗</a></div>
-      <p class="proj-desc">Digital health system for chronic vertigo combining prompt engineering with Figma UX. Visualizes balance stability via Internal Compass with adaptive audio and textual guidance.</p>
-      <div class="proj-tags"><span class="proj-tag hi">Prompt Engineering</span><span class="proj-tag hi">Figma</span><span class="proj-tag">UX Design</span><span class="proj-tag">Health Tech</span><span class="proj-tag">Accessibility</span></div>
+      <div class="proj-header"><span class="proj-num">08</span><span class="proj-title">VertiBuds: Early-Warning Support for Chronic Vertigo</span></div>
+      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Vertibuds" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://devpost.com/software/vertibuds" target="_blank" class="proj-link">devpost ↗</a><span class="proj-dot"></span><a href="https://youtube.com/shorts/n7ZQ-i_qR4U" target="_blank" class="proj-link">demo ↗</a></div>
+      <p class="proj-desc">Wearable earbud and companion app concept that warns people with chronic vertigo before an episode starts, instead of reacting after a fall. Designed with a teammate who lives with vertigo, with the full experience prototyped in Figma (Figbuild 2026).</p>
+      <ul class="proj-blist"><li><strong>Early warning:</strong> haptic, audio and visual alerts, plus an Internal Compass stability indicator.</li><li><strong>Episode guidance:</strong> step-by-step posture and breathing help, as audio or text depending on what is easiest mid-dizziness.</li><li><strong>Emergency support:</strong> notifies emergency contacts and shares location while voice guidance continues.</li></ul>
+      <div class="proj-tags"><span class="proj-tag hi">Figma</span><span class="proj-tag hi">UX Design</span><span class="proj-tag">Wearables</span><span class="proj-tag">Health Tech</span><span class="proj-tag">Accessibility</span><span class="proj-tag">Audio Guidance</span></div>
     </div>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">09</span><span class="proj-title">Auto E-Commerce: Agentic Trend-to-Store Pipeline</span></div>
-      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://devpost.com/software/auto-ecommerce" target="_blank" class="proj-link">devpost ↗</a></div>
-      <p class="proj-desc">Autonomously detects niche microtrends and launches a full e-commerce store in minutes. CEO Orchestrator Agent coordinates Nimble, ClickHouse, and Datadog-monitored sub-agents end-to-end.</p>
-      <div class="proj-tags"><span class="proj-tag hi">Multi-agent orchestration</span><span class="proj-tag hi">LangGraph</span><span class="proj-tag">Nimble</span><span class="proj-tag">ClickHouse</span><span class="proj-tag">Datadog</span><span class="proj-tag">Python</span></div>
+      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Auto-Ecommerce" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://devpost.com/software/auto-ecommerce" target="_blank" class="proj-link">devpost ↗</a></div>
+      <p class="proj-desc">Autonomous multi-agent system that detects niche microtrends and launches a live e-commerce store in minutes, with no human in the loop. Built at an Agentic Engineering hackathon with 3 teammates.</p>
+      <ul class="proj-blist"><li><strong>CEO Orchestrator Agent</strong> coordinates 5 sub-agents: Research, Buyer, Legal/Risk, Advertising and Store Creator.</li><li><strong>Learns from its own decisions:</strong> every call is stored in ClickHouse and fed back into future agent prompts to improve trend scoring.</li><li><strong>Production-minded:</strong> Datadog traces for observability and Temporal for retry-safe, durable orchestration.</li></ul>
+      <div class="proj-tags"><span class="proj-tag hi">Multi-agent orchestration</span><span class="proj-tag hi">Google ADK</span><span class="proj-tag hi">Gemini 2.5 Flash</span><span class="proj-tag">Temporal</span><span class="proj-tag">ClickHouse</span><span class="proj-tag">Nimble API</span><span class="proj-tag">Datadog</span><span class="proj-tag">FastAPI</span><span class="proj-tag">Next.js</span></div>
     </div>
     </div>
     <button class="show-more-btn" id="toggle-projects" onclick="toggleProjects()">
@@ -666,20 +676,24 @@ body{
     <h2 class="section-title">Built for the <em>AI/ML</em> stack</h2>
     <div class="skills-grid">
       <div class="sg sg-llm">
-        <div class="sg-label">⬡ LLMs &amp; Agentic AI</div>
-        <div class="sg-pills"><span class="sg-pill">LangChain</span><span class="sg-pill">LangGraph</span><span class="sg-pill">Multi-agent (A2A)</span><span class="sg-pill">RAG Systems</span><span class="sg-pill">Prompt Engineering</span><span class="sg-pill">Few-shot / n-shot</span><span class="sg-pill">LLM Evaluation</span><span class="sg-pill">GPT-4 / GPT-4o</span><span class="sg-pill">Gemini API</span><span class="sg-pill">Gemini Live API</span><span class="sg-pill">Vertex AI</span></div>
+        <div class="sg-label">⬡ LLM Post-Training &amp; Agents</div>
+        <div class="sg-pills"><span class="sg-pill">LoRA</span><span class="sg-pill">SFT</span><span class="sg-pill">RLHF (PPO-Lagrangian)</span><span class="sg-pill">Constrained MDPs</span><span class="sg-pill">Prompt Engineering</span><span class="sg-pill">LLM Evaluation &amp; Benchmarking</span><span class="sg-pill">RAG</span><span class="sg-pill">VectorDBs</span><span class="sg-pill">LangChain</span><span class="sg-pill">LangGraph</span><span class="sg-pill">Multi-Agent Systems (A2A)</span><span class="sg-pill">Gemini API</span><span class="sg-pill">Claude API</span></div>
       </div>
-      <div class="sg sg-train">
-        <div class="sg-label">◈ Model Training &amp; Fine-tuning</div>
-        <div class="sg-pills"><span class="sg-pill">PyTorch</span><span class="sg-pill">HuggingFace Transformers</span><span class="sg-pill">LoRA / PEFT</span><span class="sg-pill">Reinforcement Learning</span><span class="sg-pill">PPO / PPO-Lagrangian</span><span class="sg-pill">BERT / RoBERTa</span><span class="sg-pill">Qwen / Llama / Gemma</span><span class="sg-pill">TensorFlow</span><span class="sg-pill">Scikit-learn</span><span class="sg-pill">XGBoost</span></div>
+      <div class="sg sg-data">
+        <div class="sg-label">◆ Evaluation &amp; Statistics</div>
+        <div class="sg-pills"><span class="sg-pill">Offline Evaluation</span><span class="sg-pill">Precision / Recall / F1 / AUC</span><span class="sg-pill">Error Analysis</span><span class="sg-pill">Hypothesis Testing</span><span class="sg-pill">A/B Testing</span><span class="sg-pill">Trend Analysis</span><span class="sg-pill">Statistical Modeling</span><span class="sg-pill">Ranking Models</span></div>
       </div>
       <div class="sg sg-nlp">
-        <div class="sg-label">❋ NLP &amp; Data</div>
-        <div class="sg-pills"><span class="sg-pill">SpaCy</span><span class="sg-pill">NER</span><span class="sg-pill">Sentiment Analysis</span><span class="sg-pill">Topic Modeling</span><span class="sg-pill">Multilingual NLP</span><span class="sg-pill">Text Classification</span><span class="sg-pill">Flair</span><span class="sg-pill">FastText</span><span class="sg-pill">NLTK</span><span class="sg-pill">Statistical Modeling</span><span class="sg-pill">Pandas / NumPy</span><span class="sg-pill">Tableau</span></div>
+        <div class="sg-label">❋ ML &amp; NLP</div>
+        <div class="sg-pills"><span class="sg-pill">PyTorch</span><span class="sg-pill">TensorFlow</span><span class="sg-pill">Hugging Face Transformers</span><span class="sg-pill">Scikit-learn</span><span class="sg-pill">XGBoost</span><span class="sg-pill">Text Classification</span><span class="sg-pill">NER</span><span class="sg-pill">Sentiment Analysis</span><span class="sg-pill">Multilingual NLP</span><span class="sg-pill">Topic Modeling (BERTopic, LDA)</span></div>
       </div>
       <div class="sg sg-eng">
-        <div class="sg-label">⌬ Engineering &amp; Tools</div>
-        <div class="sg-pills"><span class="sg-pill">Python</span><span class="sg-pill">async Python</span><span class="sg-pill">ML Pipelines</span><span class="sg-pill">ETL Pipelines</span><span class="sg-pill">Docker</span><span class="sg-pill">Google Cloud</span><span class="sg-pill">Firebase</span><span class="sg-pill">SQL</span><span class="sg-pill">Git</span><span class="sg-pill">R</span><span class="sg-pill">A/B Testing</span><span class="sg-pill">Bayesian Methods</span></div>
+        <div class="sg-label">⌬ Languages &amp; Analytics</div>
+        <div class="sg-pills"><span class="sg-pill">Python (Expert)</span><span class="sg-pill">SQL</span><span class="sg-pill">R</span><span class="sg-pill">Tableau</span><span class="sg-pill">TypeScript</span><span class="sg-pill">Kotlin</span><span class="sg-pill">C++</span><span class="sg-pill">Git</span><span class="sg-pill">REST APIs</span><span class="sg-pill">FastAPI</span></div>
+      </div>
+      <div class="sg sg-lang">
+        <div class="sg-label">▣ Data &amp; Cloud Infra</div>
+        <div class="sg-pills"><span class="sg-pill">Apache Spark</span><span class="sg-pill">Hadoop (HDFS)</span><span class="sg-pill">ClickHouse</span><span class="sg-pill">AWS</span><span class="sg-pill">GCP</span><span class="sg-pill">Azure</span><span class="sg-pill">Docker</span><span class="sg-pill">CI/CD</span><span class="sg-pill">Datadog (Monitoring &amp; Observability)</span></div>
       </div>
     </div>
   </section>
@@ -692,7 +706,7 @@ body{
       <div>
         <div class="edu-deg">MS Data Science</div>
         <div class="edu-school">New York University</div>
-        <div class="edu-year">2024 – 2026</div>
+        <div class="edu-year">2024 – 2026 · GPA 3.7 / 4.0</div>
         <div class="edu-courses">Deep Learning · Machine Learning · Natural Language Understanding · Reinforcement Learning · Big Data · AI Applications in Business (NYU Stern)</div>
       </div>
     </div>
@@ -708,11 +722,28 @@ body{
     <div class="section-eyebrow" style="margin-top:40px">Honors &amp; Recognition</div>
     <div class="honors-list">
       <div class="honor-item reveal"><span class="honor-icon">🏆</span><div class="honor-text"><strong>3rd Place, GDG NYC × NYU Tandon "Build With AI" Hackathon 2026</strong> for TenantShield, judged by engineers from Meta, Bloomberg, Instagram &amp; Google.</div></div>
-      <div class="honor-item reveal"><span class="honor-icon">🏅</span><div class="honor-text"><strong>Violet Internship &amp; Research Award 2025.</strong> NYU recognition for research and internship excellence.</div></div>
-      <div class="honor-item reveal"><span class="honor-icon">🌐</span><div class="honor-text"><strong>Women in Data Science Ambassador 2026.</strong> Representing NYU in the global WiDS network.</div></div>
+      <div class="honor-item reveal"><span class="honor-icon">🏅</span><div class="honor-text"><strong>Violet Internship &amp; Research Award 2025 &amp; 2026.</strong> NYU recognition for research and internship excellence.</div></div>
+      <div class="honor-item reveal"><span class="honor-icon">🌐</span><div class="honor-text"><strong>Women in Data Science Ambassador 2026.</strong> Part of the global WiDS network.</div></div>
       <div class="honor-item reveal"><span class="honor-icon">📄</span><div class="honor-text"><strong>Published Researcher.</strong> International Journal of Engineering Research &amp; Technology (IJERT). <a href="https://www.ijert.org/research/symptoms-extraction-from-a-voice-input-using-natural-language-processing-IJERTV9IS040645.pdf" target="_blank">Symptoms Extraction from Voice Input Using NLP ↗</a></div></div>
       <div class="honor-item reveal"><span class="honor-icon">💰</span><div class="honor-text"><strong>₹37,000 Government Funding.</strong> IEDC, Indian Govt. for the Voice-Based Disease Prediction project.</div></div>
       <div class="honor-item reveal"><span class="honor-icon">🦈</span><div class="honor-text"><strong>GitHub Pull Shark &amp; Pair Extraordinaire.</strong> GitHub achievement badges for open source contributions.</div></div>
+    </div>
+  </section>
+  <!-- COMMUNITY -->
+  <section id="community" class="section reveal">
+    <div class="section-eyebrow">Giving back</div>
+    <h2 class="section-title">Organizations &amp; <em>Volunteering</em></h2>
+    <div class="section-eyebrow">Organizations</div>
+    <div class="honors-list">
+      <div class="honor-item reveal"><span class="honor-icon">🌐</span><div class="honor-text"><strong>Women in Data Science (WiDS) Ambassador, 2026.</strong> Part of the global WiDS network.</div></div>
+      <div class="honor-item reveal"><span class="honor-icon">💻</span><div class="honor-text"><strong>Member, Rewriting the Code (RTC).</strong> Community supporting women in tech.</div></div>
+      <div class="honor-item reveal"><span class="honor-icon">🔷</span><div class="honor-text"><strong>Member, GDG NYC and GDG Brooklyn.</strong> Google Developer Group communities in New York City.</div></div>
+    </div>
+    <div class="section-eyebrow" style="margin-top:40px">Volunteering</div>
+    <div class="honors-list">
+      <div class="honor-item reveal"><span class="honor-icon">🎤</span><div class="honor-text"><strong>Volunteer, DevFest 2026.</strong> Hosted by <a href="https://www.linkedin.com/company/google-developer-group-gdg-brooklyn/" target="_blank" rel="noopener">Google Developer Group (GDG) Brooklyn ↗</a>. <a href="https://lnkd.in/p/gTgSFYFn" target="_blank" rel="noopener">Event post ↗</a></div></div>
+      <div class="honor-item reveal"><span class="honor-icon">🤖</span><div class="honor-text"><strong>Volunteer, Audacious AI Friends event with Pinterest.</strong> <a href="https://lnkd.in/p/geVan7dr" target="_blank" rel="noopener">Event post ↗</a></div></div>
+      <div class="honor-item reveal"><span class="honor-icon">🌍</span><div class="honor-text"><strong>Volunteer, PwC event led by Lady Mariéme Jamme.</strong> Where a global Women in AI Network was launched. <a href="https://www.linkedin.com/in/mariemejamme/" target="_blank" rel="noopener">Lady Mariéme Jamme ↗</a></div></div>
     </div>
   </section>
   <!-- CONNECT -->
