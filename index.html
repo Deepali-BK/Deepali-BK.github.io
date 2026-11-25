@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Deepali Balakrishna Ksheersagar: AI/ML Engineer and Data Scientist. LLM post-training, agentic AI, NLP and ranking at scale. NYU MS Data Science."/>
+<meta name="theme-color" content="#faf9f7"/>
+<meta property="og:title" content="Deepali Balakrishna Ksheersagar · AI/ML Engineer"/>
+<meta property="og:description" content="LLM post-training, agentic AI, NLP and ranking at scale. NYU MS Data Science, 2026."/>
+<meta property="og:type" content="website"/>
 <title>Deepali Balakrishna Ksheersagar · AI/ML Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -418,9 +423,76 @@ body{
   .connect-btn{text-align:center}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* ─── POLISH ─── */
+.sb-link-stack .sb-link-label{line-height:1.2}
+.sb-link-stack .sb-link-val{line-height:1.3}
+@media(min-width:801px) and (max-height:860px){
+  .sidebar{padding-top:20px;padding-bottom:16px}
+  .sb-photo{width:112px;height:112px;margin-bottom:14px}
+  .sb-name{font-size:26px;margin-bottom:6px}
+  .sb-title{margin-bottom:10px}
+  .sb-status{margin-bottom:14px}
+  .sb-nav{margin-bottom:10px}
+  .sb-nav a{padding:4px 10px}
+  .sb-link{padding:4px 0}
+  .sb-link-stack{padding:6px 0}
+}
+.sb-link-stack{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:3px;padding:8px 0}
+.sb-link-stack .sb-link-val{text-align:left;white-space:nowrap;overflow-wrap:normal;font-size:12px;letter-spacing:-.005em}
+@media(min-width:801px) and (max-width:1100px){:root{--sidebar:276px}}
+html{scroll-padding-top:16px}
+body{text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%}
+::selection{background:var(--accent-light);color:var(--accent)}
+a,button{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.skip-link{position:fixed;top:-48px;left:16px;z-index:300;background:var(--surface);color:var(--accent);border:1px solid var(--border2);padding:8px 14px;border-radius:4px;font-family:var(--mono);font-size:12px;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:12px}
+.hero-headline,.section-title{text-wrap:balance}
+.hero-sub,.about-body p,.proj-desc,.proj-blist li,.exp-blist li,.honor-text{text-wrap:pretty}
+.sb-link{gap:12px}
+.sb-link-val{min-width:0;overflow-wrap:anywhere;transition:color .15s}
+.sb-link:hover .sb-link-val{color:var(--accent)}
+.proj-link{border-bottom:1px solid transparent;transition:color .15s,border-color .15s}
+.proj-link:hover{border-bottom-color:currentColor}
+.honor-text a,.about-body a{transition:border-color .15s}
+.hero-chip,.exp-chip,.proj-tag{transition:border-color .15s,color .15s}
+.exp-item,.proj-item,.honor-item{transition:background-color .2s}
+.show-more-btn:focus-visible,.connect-btn:focus-visible{outline-offset:2px}
+.to-top{
+  position:fixed;right:24px;bottom:24px;z-index:150;
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:16px;color:var(--muted);
+  background:var(--surface);border:1px solid var(--border2);
+  box-shadow:0 4px 14px -6px rgba(26,24,20,.25);
+  cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);
+  transition:opacity .25s,transform .25s,color .15s,border-color .15s;
+}
+.to-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.to-top:hover{color:var(--accent);border-color:var(--accent)}
+@media(max-width:800px){
+  .sb-links{column-gap:18px;row-gap:2px}
+  .sb-link-stack{flex-direction:row;align-items:center;gap:6px;padding:3px 0}
+  .sb-link-stack .sb-link-val{white-space:normal;overflow-wrap:anywhere}
+  .sb-nav a{padding:8px 12px}
+  .to-top{right:16px;bottom:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+@media print{
+  .sidebar{position:static;width:100%;height:auto;border-right:none}
+  .main,.page-footer{margin-left:0}
+  .reveal{opacity:1!important;transform:none!important}
+  #more-projects{display:block!important}
+  .show-more-btn,.to-top,.skip-link,.sb-nav{display:none!important}
+}
 </style>
 </head>
 <body>
+<noscript><style>.reveal{opacity:1;transform:none}#more-projects{display:block!important}.show-more-btn{display:none}</style></noscript>
+<a class="skip-link" href="#home">Skip to content</a>
 <div class="layout">
 <!-- ═══ SIDEBAR ═══ -->
 <aside class="sidebar">
@@ -441,7 +513,7 @@ body{
     <a href="#connect"><span class="nav-icon">✉</span>Let's build</a>
   </nav>
   <div class="sb-links">
-    <a href="mailto:deepali.balakrishna.tech@gmail.com" class="sb-link">
+    <a href="mailto:deepali.balakrishna.tech@gmail.com" class="sb-link sb-link-stack">
       <span class="sb-link-label">email</span>
       <span class="sb-link-val">deepali.balakrishna.tech@gmail.com ↗</span>
     </a>
@@ -512,10 +584,6 @@ body{
             <div class="award-item"><span class="award-icon">💰</span>₹37,000 Govt. Funding · IEDC</div>
             <div class="award-item"><span class="award-icon">🦈</span>GitHub Pull Shark</div>
           </div>
-        </div>
-        <div class="aside-block">
-          <div class="aside-block-label">Location</div>
-          <div class="aside-block-val">New York, NY · open to relocation</div>
         </div>
       </div>
     </div>
@@ -602,28 +670,28 @@ body{
     <h2 class="section-title">Projects</h2>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">01</span><span class="proj-title">TenantShield: AI Building Inspection Platform</span><span class="proj-badge">🏆 3rd place · GDG NYC × NYU 2026</span></div>
-      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/TenantShield" target="_blank" class="proj-link">github ↗</a></div>
+      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/TenantShield" target="_blank" class="proj-link" rel="noopener noreferrer">github ↗</a></div>
       <p class="proj-desc">Multi-agent AI platform that helps NYC tenants document housing violations and auto-generate formal complaints. Built in one day at NYC Open Data Week with 3 NYU teammates, and judged by engineers from Meta, Google, Bloomberg &amp; Instagram.</p>
       <ul class="proj-blist"><li><strong>Scores NYC Housing Maintenance Code violations</strong> (Class A / B / C) from tenant photos using Vertex AI multimodal classification.</li><li><strong>3-agent A2A pipeline</strong> (Interacting, Inspection, Filing) coordinated by a central state machine, ending in a legally formatted complaint document.</li><li><strong>Real-time voice intake</strong> through the Gemini Live API over WebSocket, with the Gemini REST API for document generation.</li><li>Full stack: Android app (Kotlin, Jetpack Compose, CameraX) plus a web app, backed by Firebase Auth, Firestore and Storage.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">Gemini Live API</span><span class="proj-tag hi">Vertex AI</span><span class="proj-tag hi">A2A multi-agent</span><span class="proj-tag">Gemini REST API</span><span class="proj-tag">Kotlin</span><span class="proj-tag">Jetpack Compose</span><span class="proj-tag">CameraX</span><span class="proj-tag">Firebase</span><span class="proj-tag">Google Cloud</span></div>
     </div>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">02</span><span class="proj-title">CoffeeAgntcy: Real-Time Multi-Agent System Optimization</span></div>
-      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Coffee-Agentcy-Optimization" target="_blank" class="proj-link">github ↗</a></div>
+      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Coffee-Agentcy-Optimization" target="_blank" class="proj-link" rel="noopener noreferrer">github ↗</a></div>
       <p class="proj-desc">Profiled and optimized an open-source, 10-container LangGraph A2A system to speed up real-time serving. Cut latency by 17% and raised throughput 12,000x on cached queries.</p>
       <ul class="proj-blist"><li><strong>Found the bottleneck first:</strong> cProfile traced the slowdown to OpenAI API I/O.</li><li><strong>Fixed it with</strong> asyncio + aiohttp concurrency, MD5-keyed response caching and TCP connection pooling.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">Python asyncio</span><span class="proj-tag hi">aiohttp</span><span class="proj-tag hi">LangGraph</span><span class="proj-tag">GPT-4o</span><span class="proj-tag">Docker</span><span class="proj-tag">cProfile</span><span class="proj-tag">SLIM TCP</span></div>
     </div>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">03</span><span class="proj-title">HTML Quality Detection &amp; Ranking Pipeline, Muck Rack</span><span class="proj-badge blue">capstone</span></div>
-      <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Article-Ingestion-Pipeline-for-Muck-Rack" target="_blank" class="proj-link">github ↗</a></div>
+      <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Article-Ingestion-Pipeline-for-Muck-Rack" target="_blank" class="proj-link" rel="noopener noreferrer">github ↗</a></div>
       <p class="proj-desc">Production pipeline that scores 3M+ HTML documents a day at 0.98 precision / 0.92 F1, removing manual QA bottlenecks for PR platform Muck Rack.</p>
       <ul class="proj-blist"><li><strong>Model:</strong> XGBoost classifier on BeautifulSoup-extracted features, combined with rule-based heuristics.</li><li><strong>Labels:</strong> GPT-4.1-mini few-shot labeling expanded an imbalanced seed dataset.</li><li><strong>Evaluation:</strong> beat Isolation Forest and logistic regression baselines offline.</li><li><strong>Reliability:</strong> feature monitoring flags model decay before quality drops.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">Python</span><span class="proj-tag hi">XGBoost</span><span class="proj-tag hi">GPT-4.1-mini</span><span class="proj-tag">BeautifulSoup</span><span class="proj-tag">Apache Spark</span><span class="proj-tag">Few-shot labeling</span><span class="proj-tag">Feature monitoring</span></div>
     </div>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">04</span><span class="proj-title">To Ask or Not to Ask: Strategic Clarification in LLM Agents via CMDPs</span></div>
-      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/rl_llm_multiturn_cmdp" target="_blank" class="proj-link">github ↗</a></div>
+      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/rl_llm_multiturn_cmdp" target="_blank" class="proj-link" rel="noopener noreferrer">github ↗</a></div>
       <p class="proj-desc">Fine-tuned Qwen2.5-Coder-7B with LoRA + RLHF (PPO-Lagrangian) to decide when to ask a clarifying question under a strict question budget, framed as a Constrained MDP. The best policy beats the untrained baseline by +6.2pp MT pass@1 (p &lt; 0.0001) on HumanEvalComm, across 469 held-out problems. Team of 3 at NYU CDS.</p>
       <ul class="proj-blist"><li><strong>Learns when to ask, not how much:</strong> average questions stayed flat (0.855 to 0.846) while accuracy rose, with the biggest gains on the most degraded specs (+20.4pp on context + partial).</li><li><strong>Mapped the budget trade-off</strong> with three policies (d1 = 0, 0.5, 1): never asking drops 8.0pp below baseline, so questions are worth their cost.</li><li><strong>Setup:</strong> GPT-4o-mini user simulator, sandboxed code execution for pass@1, and a Lagrange multiplier that tunes question cost automatically.</li><li><strong>Debugged a log-prob mismatch</strong> caused by logit-processor filtering in generate(), cutting approx KL from ~3 to ~0.007 and unblocking PPO.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">PyTorch</span><span class="proj-tag hi">PPO-Lagrangian</span><span class="proj-tag hi">LoRA</span><span class="proj-tag">RLHF</span><span class="proj-tag">Qwen2.5-Coder-7B</span><span class="proj-tag">Constrained MDP</span><span class="proj-tag">HumanEvalComm</span><span class="proj-tag">HuggingFace</span></div>
@@ -632,41 +700,41 @@ body{
     <div id="more-projects" style="display:none">
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">05</span><span class="proj-title">Fine-grained Emotion Orientation Learning for LLMs</span></div>
-      <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/NLU-project" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/NLU-project/blob/main/NLU_SP25_Final_Report_v01.pdf" target="_blank" class="proj-link">report ↗</a></div>
+      <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/NLU-project" target="_blank" class="proj-link" rel="noopener noreferrer">github ↗</a><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/NLU-project/blob/main/NLU_SP25_Final_Report_v01.pdf" target="_blank" class="proj-link" rel="noopener noreferrer">report ↗</a></div>
       <p class="proj-desc">Tested whether small LLMs can learn one person's emotional judgments instead of the crowd-sourced majority label. NYU NLU course project with 2 teammates.</p>
       <ul class="proj-blist"><li><strong>Task design:</strong> per-rater soft emotion distributions over 27 GoEmotions categories, turned into personalized multiple-choice matching questions.</li><li><strong>Result:</strong> LLaMA-3.2, Qwen-2.5 and Gemma-2 all beat chance in zero-shot and 1/3/10-shot tests, but trailed human inter-rater agreement by 15 to 25 points.</li><li><strong>Insight:</strong> up to 10 personalized examples gave only marginal gains, and layer-wise activation probing showed later layers separate emotionally coherent from incoherent pairs.</li><li>Fine-tuned a LLaMA-3-1B evaluator on high-agreement examples for automated scoring.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">LangChain</span><span class="proj-tag hi">HuggingFace</span><span class="proj-tag">GoEmotions</span><span class="proj-tag">Gemma-2</span><span class="proj-tag">Qwen-2.5</span><span class="proj-tag">LLaMA-3.2</span><span class="proj-tag">LLM Eval</span><span class="proj-tag">Interpretability</span></div>
     </div>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">06</span><span class="proj-title">heart-maxxxxing: Cardiac Rehab Gamification</span><span class="proj-badge blue">Pulse Foundry 2026</span></div>
-      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://devpost.com/software/heart-maxxxxing" target="_blank" class="proj-link">devpost ↗</a></div>
+      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://devpost.com/software/heart-maxxxxing" target="_blank" class="proj-link" rel="noopener noreferrer">devpost ↗</a></div>
       <p class="proj-desc">Mario-style browser game that turns the 36-session cardiac rehab program into an interactive world-map adventure. Built for the Pulse Foundry AI Healthcare Hackathon with 3 teammates.</p>
       <ul class="proj-blist"><li><strong>Sessions become levels</strong> on a platformer map, with power-ups, milestones and safety pause prompts for over-exertion.</li><li><strong>Gemini API as an in-game guide</strong> giving personalized, encouraging tips at each stage of recovery.</li><li>Accessible, high-contrast pixel-art UI with Framer Motion animations, deployed on Vercel.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">Gemini API</span><span class="proj-tag">Next.js</span><span class="proj-tag">React</span><span class="proj-tag">Tailwind CSS</span><span class="proj-tag">Framer Motion</span><span class="proj-tag">Vercel</span></div>
     </div>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">07</span><span class="proj-title">Voice-Based Disease Prediction (Interactive Health Bot)</span></div>
-      <div class="proj-meta"><span class="proj-year">2020</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Voice-Based-Disease-Prediction-using-NLP-Random-Forest-on-Raspberry-Pi" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://www.ijert.org/research/symptoms-extraction-from-a-voice-input-using-natural-language-processing-IJERTV9IS040645.pdf" target="_blank" class="proj-link">paper ↗</a></div>
+      <div class="proj-meta"><span class="proj-year">2020</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Voice-Based-Disease-Prediction-using-NLP-Random-Forest-on-Raspberry-Pi" target="_blank" class="proj-link" rel="noopener noreferrer">github ↗</a><span class="proj-dot"></span><a href="https://www.ijert.org/research/symptoms-extraction-from-a-voice-input-using-natural-language-processing-IJERTV9IS040645.pdf" target="_blank" class="proj-link" rel="noopener noreferrer">paper ↗</a></div>
       <p class="proj-desc">End-to-end voice disease prediction on a Raspberry Pi at 95.02% accuracy. Earned ₹37,000 in government funding (IEDC) and was published in IJERT.</p>
       <ul class="proj-blist"><li><strong>Pipeline:</strong> speech-to-text, NLP symptom extraction, Random Forest classification, then text-to-speech feedback.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">Python</span><span class="proj-tag hi">NLTK</span><span class="proj-tag hi">Scikit-learn</span><span class="proj-tag">Random Forest</span><span class="proj-tag">STT/TTS</span><span class="proj-tag">Raspberry Pi</span></div>
     </div>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">08</span><span class="proj-title">VertiBuds: Early-Warning Support for Chronic Vertigo</span></div>
-      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Vertibuds" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://devpost.com/software/vertibuds" target="_blank" class="proj-link">devpost ↗</a><span class="proj-dot"></span><a href="https://youtube.com/shorts/n7ZQ-i_qR4U" target="_blank" class="proj-link">demo ↗</a></div>
+      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Vertibuds" target="_blank" class="proj-link" rel="noopener noreferrer">github ↗</a><span class="proj-dot"></span><a href="https://devpost.com/software/vertibuds" target="_blank" class="proj-link" rel="noopener noreferrer">devpost ↗</a><span class="proj-dot"></span><a href="https://youtube.com/shorts/n7ZQ-i_qR4U" target="_blank" class="proj-link" rel="noopener noreferrer">demo ↗</a></div>
       <p class="proj-desc">Wearable earbud and companion app concept that warns people with chronic vertigo before an episode starts, instead of reacting after a fall. Designed with a teammate who lives with vertigo, with the full experience prototyped in Figma (Figbuild 2026).</p>
       <ul class="proj-blist"><li><strong>Early warning:</strong> haptic, audio and visual alerts, plus an Internal Compass stability indicator.</li><li><strong>Episode guidance:</strong> step-by-step posture and breathing help, as audio or text depending on what is easiest mid-dizziness.</li><li><strong>Emergency support:</strong> notifies emergency contacts and shares location while voice guidance continues.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">Figma</span><span class="proj-tag hi">UX Design</span><span class="proj-tag">Wearables</span><span class="proj-tag">Health Tech</span><span class="proj-tag">Accessibility</span><span class="proj-tag">Audio Guidance</span></div>
     </div>
     <div class="proj-item reveal">
       <div class="proj-header"><span class="proj-num">09</span><span class="proj-title">Auto E-Commerce: Agentic Trend-to-Store Pipeline</span></div>
-      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Auto-Ecommerce" target="_blank" class="proj-link">github ↗</a><span class="proj-dot"></span><a href="https://devpost.com/software/auto-ecommerce" target="_blank" class="proj-link">devpost ↗</a></div>
+      <div class="proj-meta"><span class="proj-year">2026</span><span class="proj-dot"></span><a href="https://github.com/Deepali-BK/Auto-Ecommerce" target="_blank" class="proj-link" rel="noopener noreferrer">github ↗</a><span class="proj-dot"></span><a href="https://devpost.com/software/auto-ecommerce" target="_blank" class="proj-link" rel="noopener noreferrer">devpost ↗</a></div>
       <p class="proj-desc">Autonomous multi-agent system that detects niche microtrends and launches a live e-commerce store in minutes, with no human in the loop. Built at an Agentic Engineering hackathon with 3 teammates.</p>
       <ul class="proj-blist"><li><strong>CEO Orchestrator Agent</strong> coordinates 5 sub-agents: Research, Buyer, Legal/Risk, Advertising and Store Creator.</li><li><strong>Learns from its own decisions:</strong> every call is stored in ClickHouse and fed back into future agent prompts to improve trend scoring.</li><li><strong>Production-minded:</strong> Datadog traces for observability and Temporal for retry-safe, durable orchestration.</li></ul>
       <div class="proj-tags"><span class="proj-tag hi">Multi-agent orchestration</span><span class="proj-tag hi">Google ADK</span><span class="proj-tag hi">Gemini 2.5 Flash</span><span class="proj-tag">Temporal</span><span class="proj-tag">ClickHouse</span><span class="proj-tag">Nimble API</span><span class="proj-tag">Datadog</span><span class="proj-tag">FastAPI</span><span class="proj-tag">Next.js</span></div>
     </div>
     </div>
-    <button class="show-more-btn" id="toggle-projects" onclick="toggleProjects()">
+    <button class="show-more-btn" id="toggle-projects" type="button" aria-expanded="false" aria-controls="more-projects" onclick="toggleProjects()">
       show 5 more projects ↓
     </button>
   </section>
@@ -724,7 +792,7 @@ body{
       <div class="honor-item reveal"><span class="honor-icon">🏆</span><div class="honor-text"><strong>3rd Place, GDG NYC × NYU Tandon "Build With AI" Hackathon 2026</strong> for TenantShield, judged by engineers from Meta, Bloomberg, Instagram &amp; Google.</div></div>
       <div class="honor-item reveal"><span class="honor-icon">🏅</span><div class="honor-text"><strong>Violet Internship &amp; Research Award 2025 &amp; 2026.</strong> NYU recognition for research and internship excellence.</div></div>
       <div class="honor-item reveal"><span class="honor-icon">🌐</span><div class="honor-text"><strong>Women in Data Science Ambassador 2026.</strong> Part of the global WiDS network.</div></div>
-      <div class="honor-item reveal"><span class="honor-icon">📄</span><div class="honor-text"><strong>Published Researcher.</strong> International Journal of Engineering Research &amp; Technology (IJERT). <a href="https://www.ijert.org/research/symptoms-extraction-from-a-voice-input-using-natural-language-processing-IJERTV9IS040645.pdf" target="_blank">Symptoms Extraction from Voice Input Using NLP ↗</a></div></div>
+      <div class="honor-item reveal"><span class="honor-icon">📄</span><div class="honor-text"><strong>Published Researcher.</strong> International Journal of Engineering Research &amp; Technology (IJERT). <a href="https://www.ijert.org/research/symptoms-extraction-from-a-voice-input-using-natural-language-processing-IJERTV9IS040645.pdf" target="_blank" rel="noopener noreferrer">Symptoms Extraction from Voice Input Using NLP ↗</a></div></div>
       <div class="honor-item reveal"><span class="honor-icon">💰</span><div class="honor-text"><strong>₹37,000 Government Funding.</strong> IEDC, Indian Govt. for the Voice-Based Disease Prediction project.</div></div>
       <div class="honor-item reveal"><span class="honor-icon">🦈</span><div class="honor-text"><strong>GitHub Pull Shark &amp; Pair Extraordinaire.</strong> GitHub achievement badges for open source contributions.</div></div>
     </div>
@@ -763,6 +831,7 @@ body{
   <span class="footer-l">deepali balakrishna ksheersagar · ms data science, nyu 2026</span>
   <span class="footer-r">new york, ny</span>
 </footer>
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">↑</button>
 <script>
 // Toggle more projects
 function toggleProjects() {
@@ -771,6 +840,8 @@ function toggleProjects() {
   const open = more.style.display === 'none';
   more.style.display = open ? 'block' : 'none';
   btn.textContent = open ? 'show less ↑' : 'show 5 more projects ↓';
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (!open) btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
   if (open) {
     const reveals = more.querySelectorAll('.reveal:not(.visible)');
     const io = new IntersectionObserver((entries) => {
@@ -807,9 +878,25 @@ document.querySelectorAll('.sb-nav a').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
     const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      navLinks.forEach(l => l.classList.remove('active'));
+      a.classList.add('active');
+      try { history.replaceState(null, '', a.getAttribute('href')); } catch (_) {}
+    }
   });
 });
+// Back-to-top button + last nav item at page bottom
+const toTop = document.getElementById('to-top');
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+window.addEventListener('scroll', () => {
+  toTop.classList.toggle('show', window.scrollY > 800);
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+    navLinks.forEach(l => l.classList.remove('active'));
+    const last = document.querySelector('.sb-nav a[href="#connect"]');
+    if (last) last.classList.add('active');
+  }
+}, { passive: true });
 </script>
 </body>
 </html>
